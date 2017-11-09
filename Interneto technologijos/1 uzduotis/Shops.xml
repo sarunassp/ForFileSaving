@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<shops xmlns="https://www.maxima.lt" xmlns:vmvt="http://vmvt.lt/">
+    <shop address="jono g. 9, Vilnius">
+        <vmvt:products category="food">
+            <vmvt:product id="1">
+                <vmvt:name>Milk</vmvt:name>
+                <vmvt:brand>Panevezio pienas</vmvt:brand>
+                <vmvt:expiration_date>2018-01-01</vmvt:expiration_date>
+                <vmvt:price>1.99</vmvt:price>
+                <vmvt:stock>100</vmvt:stock>
+            </vmvt:product>
+            <vmvt:product id="2">
+                <vmvt:name>Bread</vmvt:name>
+                <vmvt:brand>Vilniaus duona</vmvt:brand>
+                <vmvt:expiration_date>2018-01-01</vmvt:expiration_date>
+                <vmvt:price>2.07</vmvt:price>
+                <vmvt:stock>150</vmvt:stock>
+            </vmvt:product>
+        </vmvt:products>
+        <products category="household">
+            <product id="3">
+                <name>Pen</name>
+                <brand>Mont Blanc</brand>
+                <price>10.99</price>
+                <stock>10</stock>
+            </product>
+			<product id="4">
+                <name>Pencil</name>
+                <brand>Mont Blanc</brand>
+                <price>5.99</price>
+                <stock>120</stock>
+            </product>
+			<product id="4">
+                <name>Pen</name>
+                <brand>Mont Blanc</brand>
+                <price>10.99</price>
+                <stock>10</stock>
+            </product>
+        </products>
+    </shop>
+	<shop address="petro g. 11,  Vilnius">
+		<products category="electronics">
+			<product id="5">
+				<name>Headphones</name>
+                <brand>Logitech</brand>
+                <price>20.99</price>
+                <stock>5</stock>
+			</product>
+			<product id="6">
+				<name>Mouse</name>
+                <brand>Chinese inc.</brand>
+                <price>5.55</price>
+                <stock>1000</stock>
+			</product>
+			<product id="7">
+				<name>TV</name>
+                <brand>Japenese inc.</brand>
+                <price>1000.99</price>
+                <stock>16</stock>
+			</product>
+			<product id="8">
+				<name>Printer</name>
+                <brand>UK inc.</brand>
+                <price>50.99</price>
+                <stock>100</stock>
+			</product>
+		</products>
+	</shop>
+</shops>

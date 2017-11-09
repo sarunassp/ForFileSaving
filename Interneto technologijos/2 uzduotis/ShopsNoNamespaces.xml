@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<shops>
+  <shop address="jono g. 9, Vilnius">
+    <products category="food">
+      <product id="1">
+        <name>Milk</name>
+        <brand>Panevezio pienas</brand>
+        <expiration_date>2018-01-01</expiration_date>
+        <price>1.99</price>
+        <stock>100</stock>
+      </product>
+      <product id="2">
+		    not useless text
+        <name>Bread</name>
+        <brand>Vilniaus duona</brand>
+        <expiration_date>2018-01-01</expiration_date>
+        <price>2.07</price>
+        <stock>150</stock>
+      </product>
+    </products>
+    <products category="household">
+      <product id="3">
+        <name>Pen</name>
+        <brand>Mont Blanc</brand>
+        <price>10.99</price>
+        <stock>10</stock>
+      </product>
+      <product id="4">
+        <name>Pencil</name>
+        <brand>Mont Blanc</brand>
+        <price>5.99</price>
+        <stock>120</stock>
+      </product>
+      <product id="5">
+        <name>Pen</name>
+        <brand>Mont Blanc</brand>
+        <price>10.99</price>
+        <stock>10</stock>
+      </product>
+    </products>
+    <productsOfTheWeek productCategory="household" />
+  </shop>
+  <shop address="petro g. 11, Vilnius">
+    <products category="electronics">
+      <product id="6">
+        <name>Headphones</name>
+        <brand>Logitech</brand>
+        <price>20.99</price>
+        <stock>5</stock>
+      </product>
+      <product id="7">
+        <name>Mouse</name>
+        <brand>Chinese inc.</brand>
+        <price>5.55</price>
+        <stock>1000</stock>
+      </product>
+      <product id="8">
+        <name>TV</name>
+        <brand>Japenese inc.</brand>
+        <price>1000.99</price>
+        <stock>16</stock>
+      </product>
+      <product id="9">
+        <name>Printer</name>
+        <brand>UK inc.</brand>
+        <price>50.99</price>
+        <stock>100</stock>
+      </product>
+    </products>
+  </shop>
+</shops>

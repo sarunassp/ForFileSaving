@@ -1,0 +1,39 @@
+1.
+/descendant::product[@id="1"]/ancestor::*
+/descendant::product[@id="1"]/descendant::*
+/descendant::product[@id="1"]/following-sibling::*
+/descendant::product[@id="1"]/preceding-sibling::*
+/descendant::product[@id="1"]/following::*
+/descendant::product[@id="1"]/preceding::*
+/descendant::product[@id="1"]/attribute::*
+
+
+2.
+/descendant::product[stock > 0]
+
+
+3.
+count(/descendant::product)
+sum(/descendant::product/stock)
+
+
+4.
+/descendant::product > 5
+/descendant::product[@id="1"] = string(/descendant::product[@id="1"])
+/descendant::product[@id="1"] + 1
+
+
+5.
+/descendant::products/product/child::name[text() = "Milk"]
+
+
+6.
+/descendant::product = 1
+/descendant::product = "asdasdasd"
+/descendant::product = true()
+/descendant::product = /descendant::products
+
+
+7.
+/descendant::product > /descendant::products
+/descendant::product < /descendant::products

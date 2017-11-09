@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+  
+	"definitions": {
+		"product": {
+			"type": "object",
+			"properties": {
+				"category": {
+					"allOf": [
+					    { "type": "string" },
+						{ "pattern": "[a-zA-Z]*$" },
+						{ "minLength": 2 },
+						{ "maxLength": 30 },
+						{
+							"enum": [
+								"food",
+								"household",
+								"electronics"
+							]
+						}
+					]
+				},
+				"id": { "oneOf": [ {"type": "integer" } ] },
+				"name": { "type": "string", "pattern": "^[a-zA-Z]+$", "minLength": 2, "maxLength": 30 },
+				"brand": { "anyOf": [ {"type": "string" } ] },
+				"expiration_date": { "type": "string", "pattern": "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))" },
+				"price": { "type": "number", "minimum": 0 },
+				"stock": { "type": "integer", "minimum": 0 }
+			},
+		  "required": ["category", "id", "name", "brand", "price", "stock"]
+		},
+		"products": {
+			"type": "array",
+			"items": { "$ref": "#/definitions/product" }
+		},
+		"shop": {
+			"type": "object",
+			"properties": {
+				"address": { "type": "string" },
+				"products": { "$ref": "#/definitions/products" }
+			}
+		}
+	},
+    "type": "object",
+    "properties": {
+		"shops": {
+			"type": "array",
+			"items": { "$ref": "#/definitions/shop" }
+		}
+    }
+}

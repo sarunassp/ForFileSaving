@@ -1,0 +1,92 @@
+{
+	"shops":
+	[
+	{
+		"address": "jono g. 9, Vilnius",
+		"products":
+		[
+		{
+			"category": "food",
+			"id": "1",
+			"name": "Milk",
+			"brand": "Panevezio pienas",
+			"expiration_date": "2018-01-01",
+			"price": "1.99",
+			"stock": "100"
+		},
+		{
+			"category": "food",
+			"id": "2",
+			"name": "Bread",
+			"brand": "Vilniaus duona",
+			"expiration_date": "2018-01-01",
+			"price": "2.07",
+			"stock": "150"
+		},
+		{
+			"category": "household",
+		    "id": "3",
+		    "name": "Pen",
+	  	    "brand": "Mont Blanc",
+		    "price": "10.99",
+		    "stock": "10"
+		},
+		{
+			"category": "household",
+		    "id": "4",
+		    "name": "Pencil",
+		    "brand": "Mont Blanc",
+		    "price": "5.99",
+		    "stock": "120"
+		},
+		{
+			"category": "household",
+		    "id": "4",
+		    "name": "Pen",
+		    "brand": "Mont Blanc",
+		    "price": "10.99",
+		    "stock": "10"
+		}
+		]
+	},
+	{
+		"address": "petro g. 11,  Vilnius",
+		"products": 
+		[
+		{
+			"category": "electronics",
+		    "id": "5",
+		    "name": "Headphones",
+		    "brand": "Logitech",
+		    "price": "20.99",
+		    "stock": "5"
+		},
+		{
+			"category": "electronics",
+		    "id": "6",
+		    "name": "Mouse",
+		    "brand": "Chinese inc.",
+		    "price": "5.55",
+		    "stock": "1000"
+		},
+		{
+			"category": "electronics",
+		    "id": "7",
+		    "name": "TV",
+		    "brand": "Japenese inc.",
+		    "price": "1000.99",
+		    "stock": "16"
+		},
+		{
+			"category": "electronics",
+		    "id": "8",
+		    "name": "Printer",
+		    "brand": "UK inc.",
+		    "price": "50.99",
+		    "stock": "100"
+		}
+		]
+	}
+	]
+	
+}

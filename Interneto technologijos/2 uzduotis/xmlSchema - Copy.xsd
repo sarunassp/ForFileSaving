@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:complexType name="productOfTheWeekType">
+        <xs:attribute name="productCategory" type="xs:string" />
+    </xs:complexType>
+  
+    <xs:complexType name="productType">
+        <xs:complexContent>
+            <xs:extension base="productTypeNoId">
+                <xs:attribute name="id" use="required">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                            <xs:minInclusive value="1"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="productTypeNoId" mixed="true">
+        <xs:all>
+            <xs:element name="name" type="xs:string" minOccurs="1" />
+            <xs:element name="brand" type="xs:string" minOccurs="1" />
+            <xs:element name="price" type="xs:decimal" minOccurs="1" />
+            <xs:element name="stock" type="xs:integer" minOccurs="1" />
+            <xs:element name="expiration_date" type="xs:date" minOccurs="0" />
+        </xs:all>
+    </xs:complexType>
+  
+    <xs:complexType name="productsType">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="product" type="productType" />
+        </xs:sequence>
+        <xs:attribute name="category" type="xs:string" />
+    </xs:complexType>
+  
+    <xs:complexType name="shopType">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="products" type="productsType">
+
+            </xs:element>
+            <xs:element name="productsOfTheWeek" type="productOfTheWeekType" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="address" type="xs:string" />
+    </xs:complexType>
+  
+    <xs:complexType name="shopsType">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="shop" type="shopType" >
+                <xs:key name="CategoryKey">
+                    <xs:selector xpath="products"/>
+                    <xs:field xpath="@category"/>
+                </xs:key>
+                <xs:keyref name="RefToCategory" refer="CategoryKey">
+                    <xs:selector xpath="productsOfTheWeek"/>
+                    <xs:field xpath="@productCategory"/>
+                </xs:keyref>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="address" type="xs:string" />
+    </xs:complexType>
+  
+    <xs:element name="shops" type="shopsType">
+        <xs:unique name="IdKey">
+            <xs:selector xpath="shop/products/product"/>
+            <xs:field xpath="@id"/>
+        </xs:unique>
+    </xs:element>
+</xs:schema>
+
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:complexType name="productOfTheWeekType">
+		<xs:attribute name="productCategory" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="productType">
+		<xs:all>
+			<xs:element name="name" type="xs:string" minOccurs="1" />
+			<xs:element name="brand" type="xs:string" minOccurs="1" />
+			<xs:element name="price" type="xs:decimal" minOccurs="1" />
+			<xs:element name="stock" type="xs:integer" minOccurs="1" />
+			<xs:element name="expiration_date" type="xs:date" minOccurs="0" />
+		</xs:all>
+		<xs:attribute name="id" type="xs:integer" />
+	</xs:complexType>
+	<xs:complexType name="productsType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="product" type="productType" />
+		</xs:sequence>
+		<xs:attribute name="category" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="shopType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="products" type="productsType">
+				<xs:key name="IdKey">
+					<xs:selector xpath="product"/>
+					<xs:field xpath="@id"/>
+				</xs:key>
+			</xs:element>
+			<xs:element name="productsOfTheWeek" type="productOfTheWeekType" maxOccurs="1" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="address" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="shopsType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="shop" type="shopType" >
+				<xs:key name="CategoryKey">
+					<xs:selector xpath="products"/>
+					<xs:field xpath="@category"/>
+				</xs:key>
+				<xs:keyref name="RefToCategory" refer="CategoryKey">
+					<xs:selector xpath="productsOfTheWeek"/>
+					<xs:field xpath="@productCategory"/>
+				</xs:keyref>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="address" type="xs:string" />
+	</xs:complexType>
+	<xs:element name="shops" type="shopsType" />
+</xs:schema>
+-->
+
+
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:complexType name="productType">
+		<xs:all>
+			<xs:element name="name" type="xs:string" minOccurs="1" />
+			<xs:element name="brand" type="xs:string" minOccurs="1" />
+			<xs:element name="price" type="xs:decimal" minOccurs="1" />
+			<xs:element name="stock" type="xs:integer" minOccurs="1" />
+			<xs:element name="expiration_date" type="xs:date" minOccurs="0" />
+		</xs:all>
+		<xs:attribute name="id" type="xs:integer" />
+	</xs:complexType>
+	<xs:complexType name="productsType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="product" type="productType" />
+		</xs:sequence>
+		<xs:attribute name="category" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="shopType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="products" type="productsType">
+				<xs:unique name="uniqueId">
+				   <xs:selector xpath="product"/>
+				   <xs:field xpath="@id"/>
+				</xs:unique>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="address" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="shopsType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="shop" type="shopType"/>
+		</xs:sequence>
+		<xs:attribute name="address" type="xs:string" />
+	</xs:complexType>
+	<xs:element name="shops" type="shopsType" />
+</xs:schema>
+-->
+
+
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:complexType name="productType">
+		<xs:all>
+			<xs:element name="name" type="xs:string" minOccurs="1" />
+			<xs:element name="brand" type="xs:string" minOccurs="1" />
+			<xs:element name="price" type="xs:decimal" minOccurs="1" />
+			<xs:element name="stock" type="xs:integer" minOccurs="1" />
+			<xs:element name="expiration_date" type="xs:date" minOccurs="0" />
+		</xs:all>
+		<xs:attribute name="id" type="xs:integer" />
+	</xs:complexType>
+	<xs:complexType name="productsType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="product" type="productType"/>
+		</xs:sequence>
+		<xs:attribute name="category" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="shopType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="products" type="productsType"/>
+		</xs:sequence>
+		<xs:attribute name="address" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="shopsType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="shop" type="shopType"/>
+		</xs:sequence>
+		<xs:attribute name="address" type="xs:string" />
+	</xs:complexType>
+	<xs:element name="shops" type="shopsType"/>
+</xs:schema>
+-->
