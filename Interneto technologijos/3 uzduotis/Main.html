@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My home page</title>
+  <link rel="stylesheet" href="styles/styles.css" type="text/css">
+</head>
+<body>
+    <a href="main.html">
+        <img class="center" src="images/Maxima-logo.png" height="80" width="300" alt="Maxima logo" />
+    </a>
+
+    <nav class="navBarContainer">
+        <div class="navBarBlock">Akcijos Leidiniai</div>
+        <div class="navBarBlock">Teminës akcijos</div>
+        <div class="navBarBlock">Maistas ir gërimai</div>
+        <div class="navBarBlock">Paslaugos</div>
+        <div class="navBarBlock"><a href="Kontaktai.html">Kontaktai</a></div>
+    </nav>
+
+    <div style="overflow:hidden">
+        <aside class="paddingHack right ad">
+        </aside>
+
+        <section class="paddingHack left">
+            <h2>Maxima kortelë</h2>
+
+            <article>
+                <h3>Prisijungimas</h3>
+                <form>
+                    Prisijungimo vardas<br>
+                    <input type="text" name="username"><br>
+                    Slaptazodis<br>
+                    <input type="password" name="psw">
+                </form>
+            </article>
+            <br/><br/>
+            <article>
+                <h3>Registracija</h3>
+                <form name="forma"> <!--action="url thingy idc about now" method="post"-->
+                    Vardas: <input type="text" name="vardas" required><br>
+                    Pavardë: <input type="text" name="pavarde" required><br>
+                    Paðto adresas: <input type="text" name="email" required><br>
+                    <label>
+                        <input type="radio" name="lytis" value="V"> vyras
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="lytis" value="M"> moteris
+                    </label>
+                    <br>
+                    Kortelës numeris: <input type="number" required><br/>
+                    Plaukø spalva: <select name="plaukuSpalva">
+                        <option value="ruda">ruda</option>
+                        <option value="zalia">zalia</option>
+                        <option value="geltona">geltona</option>
+                        <option value="raudona">raudonas</option>
+                    </select><br/>
+                    <input type="submit" value="Siøsti">
+                    <input type="reset" value="Iðvalyti">
+                </form>
+            </article>
+            <div>
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+        </section>
+    </div>
+
+
+    <footer id="footerCopyright">
+        2017 © MAXIMA LT, UAB. Visos teisës saugomos
+    </footer>
+</body>
+</html>
