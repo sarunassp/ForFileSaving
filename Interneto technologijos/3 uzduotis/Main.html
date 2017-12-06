@@ -3,6 +3,25 @@
 <head>
   <title>My home page</title>
   <link rel="stylesheet" href="styles/styles.css" type="text/css">
+    <script>
+        function onClickFuncById() {
+            var footer = document.getElementById("footerCopyright").innerHTML = "kazkas pasikeite";
+        }
+
+        function onClickFuncByTag() {
+            var navBarThingy = document.getElementsByTagName("nav")[0].childNodes[1];
+            alert(navBarThingy.innerHTML);
+
+        }
+
+        function onClickFuncByAtr() {
+            var navBarThingy = document.querySelectorAll('nav.navBarContainer')[0].childNodes[1];
+            var stringy = navBarThingy.style.backgroundColor = "red";
+            
+
+        }
+    
+    </script>
 </head>
 <body>
     <a href="main.html">
@@ -56,9 +75,14 @@
                         <option value="geltona">geltona</option>
                         <option value="raudona">raudonas</option>
                     </select><br/>
-                    <input type="submit" value="Siøsti">
+                    <input type="submit" value="Siøsti" onclick="onClickFunc()">
                     <input type="reset" value="Iðvalyti">
                 </form>
+
+
+                <input type="submit" value="by id" onclick="onClickFuncById()">
+                <input type="submit" value="by tag" onclick="onClickFuncByTag()">
+                <input type="submit" value="by atr" onclick="onClickFuncByAtr()">
             </article>
             <div>
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

@@ -5,8 +5,9 @@
     text-align: center;
 }
 
-h1, h2 {
+h2 {
     text-align: center;
+    color: darkgrey;
 }
 
 tr {
@@ -17,14 +18,28 @@ tr[title=nedirba] {
     color: red;
 }
 
+table th, td{
+    border: solid;
+    border-width: thin;
+}
+
 .navBarContainer {
     width: 100%;
     padding: 5px;
-    background-color: cornflowerblue !important;
+    background-color: cornflowerblue;
     flex-direction: row;
     display: flex;
 }
-.navBarContainer .navBarBlock {
+
+section {
+    color: black;
+}
+
+section h2 {
+    color: inherit;
+}
+
+.navBarContainer > .navBarBlock {
     display: inline-block;
     padding: 15px;
     font-size: 17px;
