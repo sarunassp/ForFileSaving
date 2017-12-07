@@ -12,129 +12,112 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="IBeer.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IBeer.cs">
+      <file leaf-file-name="BeerController.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BeerBrewery/Controllers/BeerController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="32" />
+            <state relative-caret-position="19">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
-                <marker date="1512584529827" expanded="true" signature="6:37" ph="..." />
-                <marker date="1512584529827" expanded="true" signature="98:303" ph="{...}" />
+                <marker date="1512657440352" expanded="true" signature="6:41" ph="..." />
+                <marker date="1512657440352" expanded="true" signature="76:684" ph="{...}" />
+                <marker date="1512657440352" expanded="true" signature="110:682" ph="{...}" />
+                <marker date="1512657440352" expanded="true" signature="265:326" ph="{...}" />
+                <marker date="1512657440352" expanded="true" signature="431:501" ph="{...}" />
+                <marker date="1512657440352" expanded="true" signature="606:676" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IBrewingMaterial.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IBrewingMaterial.cs">
+      <file leaf-file-name="BeerServiceImplementationA.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/BeerServiceImplementationA.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="24" column="40" lean-forward="false" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+              <folding>
+                <marker date="1512657775570" expanded="false" signature="6:94" ph="..." />
+                <marker date="1512657775570" expanded="true" signature="126:1354" ph="{...}" />
+                <marker date="1512657775570" expanded="true" signature="187:1352" ph="{...}" />
+                <marker date="1512657775570" expanded="true" signature="709:921" ph="{...}" />
+                <marker date="1512657775570" expanded="true" signature="991:1068" ph="{...}" />
+                <marker date="1512657775570" expanded="true" signature="1131:1208" ph="{...}" />
+                <marker date="1512657775570" expanded="true" signature="1269:1346" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Program.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BeerBrewery/Program.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="511">
+              <caret line="43" column="12" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+              <folding>
+                <marker date="1512659517450" expanded="true" signature="6:88" ph="..." />
+                <marker date="1512659517450" expanded="true" signature="111:1815" ph="{...}" />
+                <marker date="1512659517450" expanded="true" signature="140:530" ph="{...}" />
+                <marker date="1512659517450" expanded="true" signature="194:524" ph="{...}" />
+                <marker date="1512659517450" expanded="true" signature="571:1813" ph="{...}" />
+                <marker date="1512659517450" expanded="true" signature="653:1454" ph="{...}" />
+                <marker date="1512659517450" expanded="true" signature="1543:1576" ph="{...}" />
+                <marker date="1512659517450" expanded="true" signature="1653:1686" ph="{...}" />
+                <marker date="1512659517450" expanded="true" signature="1774:1807" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StorageImplementationA.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/StorageImplementationA.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+              <folding>
+                <marker date="1512658665703" expanded="true" signature="30:555" ph="{...}" />
+                <marker date="1512658665703" expanded="true" signature="83:553" ph="{...}" />
+                <marker date="1512658665703" expanded="true" signature="310:387" ph="{...}" />
+                <marker date="1512658665703" expanded="true" signature="470:547" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StorageImplementationB.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/StorageImplementationB.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+              <folding>
+                <marker date="1512658676632" expanded="true" signature="30:555" ph="{...}" />
+                <marker date="1512658676632" expanded="true" signature="83:553" ph="{...}" />
+                <marker date="1512658676632" expanded="true" signature="310:387" ph="{...}" />
+                <marker date="1512658676632" expanded="true" signature="470:547" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IBeerFactory.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BeerBrewery/EntityFactories/IBeerFactory.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+              <folding>
+                <marker date="1512657775586" expanded="true" signature="66:196" ph="{...}" />
+                <marker date="1512657775586" expanded="true" signature="102:194" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IBeerService.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/IBeerService.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
-              <caret line="6" column="37" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="8" selection-end-column="52" />
               <folding>
-                <marker date="1512584713562" expanded="true" signature="70:189" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IStorage.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IStorage.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1512584867288" expanded="true" signature="99:259" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ITreasury.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/ITreasury.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding>
-                <marker date="1512584816718" expanded="true" signature="30:196" ph="{...}" />
-                <marker date="1512584816718" expanded="true" signature="63:194" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IBeerRepository.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/IBeerRepository.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-              <folding>
-                <marker date="1512582894442" expanded="true" signature="34:96" ph="{...}" />
-                <marker date="1512582894442" expanded="true" signature="73:94" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IBrewingMaterialRepository.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/IBrewingMaterialRepository.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-              <folding>
-                <marker date="1512582906916" expanded="true" signature="34:107" ph="{...}" />
-                <marker date="1512582906916" expanded="true" signature="84:105" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IStorageRepository.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/IStorageRepository.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-              <folding>
-                <marker date="1512582917363" expanded="true" signature="34:99" ph="{...}" />
-                <marker date="1512582917363" expanded="true" signature="76:97" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ITreasuryRepository.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/ITreasuryRepository.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-              <folding>
-                <marker date="1512582931176" expanded="true" signature="34:100" ph="{...}" />
-                <marker date="1512582931176" expanded="true" signature="77:98" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IDonationService.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/IDonationService.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-              <folding>
-                <marker date="1512584995858" expanded="true" signature="30:127" ph="{...}" />
-                <marker date="1512584995858" expanded="true" signature="70:125" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ISalesService.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/ISalesService.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="76" lean-forward="false" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
-              <folding>
-                <marker date="1512585122635" expanded="true" signature="59:298" ph="{...}" />
-                <marker date="1512585122635" expanded="true" signature="132:296" ph="{...}" />
+                <marker date="1512651844886" expanded="true" signature="59:272" ph="{...}" />
+                <marker date="1512651844886" expanded="true" signature="95:270" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -148,7 +131,35 @@
     <setting file="file://$PROJECT_DIR$/BeerBrewery/Entities/IStorage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BeerBrewery/Entities/IBeer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BeerBrewery/Entities/IBrewingMaterial.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/EntityFactories/IBeerFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Services/SalesServiceImplementationB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Services/SalesServiceImplementationA.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Services/DonationServiceImplementationB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Services/DonationServiceImplementationA.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Services/BeerServiceImplementationB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Services/BeerServiceImplementationA.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Services/IBeerService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Repositories/TreasuryRepoImplementationB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Repositories/TreasuryRepoImplementationA.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Repositories/StorageRepoImplementationB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Repositories/StorageRepoImplementationA.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6B74CC51-E420-41DB-A63E-D788F99F0CBB/92/daa28a68/IRegistrationBuilder`3.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Repositories/BrewingMaterialRepoImplementationB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Repositories/BrewingMaterialRepoImplementationA.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Repositories/BeerRepoImplementationB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Controllers/DonationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BeerBrewery/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Repositories/BeerRepoImplementationA.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Controllers/SalesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Controllers/BeerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Entities/TreasuryImplementationB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Entities/TreasuryImplementationA.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Entities/StorageImplementationB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Entities/StorageImplementationA.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Entities/BrewingMaterialImplementationB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Entities/BrewingMaterialImplementationA.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Entities/BeerImplementationB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BeerBrewery/Entities/BeerImplementationA.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BeerBrewery/Services/ISalesService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BeerBrewery/Services/IDonationService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BeerBrewery/Repositories/ITreasuryRepository.cs" root0="FORCE_HIGHLIGHTING" />
@@ -158,20 +169,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/BeerBrewery/Program.cs" />
-        <option value="$PROJECT_DIR$/BeerBrewery/Services.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Entities/Implementations/TreasuryImplementationB.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/Interfaces/IBeerRepository.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/Interfaces/IBrewingMaterialRepository.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/Interfaces/IStorageRepository.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/Interfaces/ITreasuryRepository.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Entities/BeerImplementationA.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Entities/BeerImplementationB.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Entities/BrewingMaterialImplementationA.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Entities/BrewingMaterialImplementationB.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Entities/IBeer.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Entities/IBrewingMaterial.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Services/IOrderService.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Services/IDonationService.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Entities/ITreasury.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Entities/TreasuryImplementationA.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Entities/TreasuryImplementationB.cs" />
         <option value="$PROJECT_DIR$/BeerBrewery/Repositories/IBeerRepository.cs" />
         <option value="$PROJECT_DIR$/BeerBrewery/Repositories/IBrewingMaterialRepository.cs" />
         <option value="$PROJECT_DIR$/BeerBrewery/Repositories/IStorageRepository.cs" />
         <option value="$PROJECT_DIR$/BeerBrewery/Repositories/ITreasuryRepository.cs" />
-        <option value="$PROJECT_DIR$/BeerBrewery/Entities/IBeerStorage.cs" />
-        <option value="$PROJECT_DIR$/BeerBrewery/Entities/IBrewingMaterialStorage.cs" />
-        <option value="$PROJECT_DIR$/BeerBrewery/Entities/IBeer.cs" />
-        <option value="$PROJECT_DIR$/BeerBrewery/Entities/IBrewingMaterial.cs" />
-        <option value="$PROJECT_DIR$/BeerBrewery/Entities/ITreasury.cs" />
         <option value="$PROJECT_DIR$/BeerBrewery/Entities/IStorage.cs" />
-        <option value="$PROJECT_DIR$/BeerBrewery/Services/IDonationService.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/BrewingMaterialRepoImplementationb.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/StoragRepoImplementationB.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/BeerRepoImplementationA.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/BeerRepoImplementationB.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/BrewingMaterialRepoImplementationA.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/BrewingMaterialRepoImplementationB.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/StorageRepoImplementationA.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/StorageRepoImplementationB.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/TreasuryRepoImplementationA.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Repositories/TreasuryRepoImplementationB.cs" />
         <option value="$PROJECT_DIR$/BeerBrewery/Services/ISalesService.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Services/IBrewingService.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/EntityFactories/IBeerServiceFactory.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/EntityFactories/SalesFactory.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/EntityFactories/ISalesFactory.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/EntityFactories/IResourcesFactory.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Services/IBeerService.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Services/BeerServiceImplementationB.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Services/DonationServiceImplementationA.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Services/DonationServiceImplementationB.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Services/SalesServiceImplementationA.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Services/SalesServiceImplementationB.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Controllers/DonationController.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Controllers/SalesController.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Controllers/BeerController.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/EntityFactories/IBeerFactory.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Services/BeerServiceImplementationA.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Entities/StorageImplementationA.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Entities/StorageImplementationB.cs" />
+        <option value="$PROJECT_DIR$/BeerBrewery/Program.cs" />
       </list>
     </option>
   </component>
@@ -212,6 +260,64 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="BeerBrewery (1 project)" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BeerBrewery" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BeerBrewery (1 project)" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BeerBrewery" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Services" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BeerBrewery (1 project)" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BeerBrewery" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EntityFactories" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BeerBrewery (1 project)" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BeerBrewery" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
           </PATH>
@@ -298,10 +404,10 @@
       <method />
     </configuration>
     <configuration default="false" name="Default" type="DotNetProject" factoryName=".NET Project">
-      <option name="PROJECT_PATH" value="" />
-      <option name="PROJECT_KIND" value="None" />
-      <option name="PROJECT_TFM" value="" />
-      <option name="EXE_PATH" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/BeerBrewery/BeerBrewery.csproj" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.5" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/BeerBrewery/bin/Debug/BeerBrewery.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="USE_MONO" value="0" />
@@ -324,12 +430,12 @@
       <option name="presentableId" value="Default" />
       <updated>1512582270342</updated>
       <workItem from="1512582279063" duration="2953000" />
-      <workItem from="1512588676262" duration="10000" />
+      <workItem from="1512588676262" duration="11761000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2963000" />
+    <option name="totallyTimeSpent" value="14714000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -344,17 +450,18 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25725028" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25725028" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -376,33 +483,13 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IBeer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="32" />
-          <folding>
-            <marker date="1512584529827" expanded="true" signature="6:37" ph="..." />
-            <marker date="1512584529827" expanded="true" signature="98:303" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IBrewingMaterial.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="37" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-          <folding>
-            <marker date="1512584713562" expanded="true" signature="70:189" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IStorage.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1512584867288" expanded="true" signature="99:259" ph="{...}" />
+            <marker date="1512651067717" expanded="true" signature="30:335" ph="{...}" />
+            <marker date="1512651067717" expanded="true" signature="62:333" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -412,8 +499,8 @@
         <state relative-caret-position="133">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <marker date="1512584816718" expanded="true" signature="30:196" ph="{...}" />
-            <marker date="1512584816718" expanded="true" signature="63:194" ph="{...}" />
+            <marker date="1512650905724" expanded="true" signature="30:321" ph="{...}" />
+            <marker date="1512650905724" expanded="true" signature="63:319" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -423,8 +510,9 @@
         <state relative-caret-position="76">
           <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
           <folding>
-            <marker date="1512582894442" expanded="true" signature="34:96" ph="{...}" />
-            <marker date="1512582894442" expanded="true" signature="73:94" ph="{...}" />
+            <marker date="1512651067670" expanded="false" signature="6:61" ph="..." />
+            <marker date="1512651067670" expanded="true" signature="97:281" ph="{...}" />
+            <marker date="1512651067670" expanded="true" signature="136:279" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -434,8 +522,9 @@
         <state relative-caret-position="76">
           <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
           <folding>
-            <marker date="1512582906916" expanded="true" signature="34:107" ph="{...}" />
-            <marker date="1512582906916" expanded="true" signature="84:105" ph="{...}" />
+            <marker date="1512651067654" expanded="false" signature="6:61" ph="..." />
+            <marker date="1512651067654" expanded="true" signature="97:325" ph="{...}" />
+            <marker date="1512651067654" expanded="true" signature="147:323" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -445,8 +534,9 @@
         <state relative-caret-position="76">
           <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
           <folding>
-            <marker date="1512582917363" expanded="true" signature="34:99" ph="{...}" />
-            <marker date="1512582917363" expanded="true" signature="76:97" ph="{...}" />
+            <marker date="1512651067701" expanded="true" signature="6:61" ph="..." />
+            <marker date="1512651067701" expanded="true" signature="97:294" ph="{...}" />
+            <marker date="1512651067701" expanded="true" signature="139:292" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -456,8 +546,9 @@
         <state relative-caret-position="76">
           <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
           <folding>
-            <marker date="1512582931176" expanded="true" signature="34:100" ph="{...}" />
-            <marker date="1512582931176" expanded="true" signature="77:98" ph="{...}" />
+            <marker date="1512651067684" expanded="true" signature="6:61" ph="..." />
+            <marker date="1512651067684" expanded="true" signature="97:297" ph="{...}" />
+            <marker date="1512651067684" expanded="true" signature="140:295" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -467,8 +558,8 @@
         <state relative-caret-position="76">
           <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
           <folding>
-            <marker date="1512584995858" expanded="true" signature="30:127" ph="{...}" />
-            <marker date="1512584995858" expanded="true" signature="70:125" ph="{...}" />
+            <marker date="1512649616265" expanded="true" signature="59:228" ph="{...}" />
+            <marker date="1512649616265" expanded="true" signature="99:226" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -478,125 +569,545 @@
         <state relative-caret-position="133">
           <caret line="7" column="76" lean-forward="false" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
           <folding>
-            <marker date="1512585122635" expanded="true" signature="59:298" ph="{...}" />
-            <marker date="1512585122635" expanded="true" signature="132:296" ph="{...}" />
+            <marker date="1512651436673" expanded="false" signature="6:41" ph="..." />
+            <marker date="1512651436673" expanded="true" signature="73:280" ph="{...}" />
+            <marker date="1512651436673" expanded="true" signature="110:278" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services.cs" />
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IBrewingMaterialStorage.cs" />
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/BrewingMaterialImplementationA.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+          <folding>
+            <marker date="1512649457932" expanded="true" signature="30:241" ph="{...}" />
+            <marker date="1512649457932" expanded="true" signature="99:239" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/BeerImplementationB.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="31" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+          <folding>
+            <marker date="1512649454306" expanded="true" signature="45:334" ph="{...}" />
+            <marker date="1512649454306" expanded="true" signature="92:332" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/BeerImplementationA.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="31" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+          <folding>
+            <marker date="1512649449274" expanded="true" signature="45:334" ph="{...}" />
+            <marker date="1512649449274" expanded="true" signature="92:332" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/BrewingMaterialImplementationB.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+          <folding>
+            <marker date="1512649457857" expanded="true" signature="30:241" ph="{...}" />
+            <marker date="1512649457857" expanded="true" signature="99:239" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/TreasuryImplementationA.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="56" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="56" />
+          <folding>
+            <marker date="1512650938031" expanded="true" signature="30:538" ph="{...}" />
+            <marker date="1512650938031" expanded="true" signature="85:536" ph="{...}" />
+            <marker date="1512650938031" expanded="true" signature="329:406" ph="{...}" />
+            <marker date="1512650938031" expanded="true" signature="453:530" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/TreasuryImplementationB.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+          <folding>
+            <marker date="1512650937999" expanded="true" signature="30:547" ph="{...}" />
+            <marker date="1512650937999" expanded="true" signature="85:545" ph="{...}" />
+            <marker date="1512650937999" expanded="true" signature="338:415" ph="{...}" />
+            <marker date="1512650937999" expanded="true" signature="462:539" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/IStorageRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <folding>
+            <marker date="1512651067701" expanded="true" signature="6:61" ph="..." />
+            <marker date="1512651067701" expanded="true" signature="97:294" ph="{...}" />
+            <marker date="1512651067701" expanded="true" signature="139:292" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/ITreasuryRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+          <folding>
+            <marker date="1512651067684" expanded="true" signature="6:61" ph="..." />
+            <marker date="1512651067684" expanded="true" signature="97:297" ph="{...}" />
+            <marker date="1512651067684" expanded="true" signature="140:295" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/ITreasury.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+          <folding>
+            <marker date="1512650905724" expanded="true" signature="30:321" ph="{...}" />
+            <marker date="1512650905724" expanded="true" signature="63:319" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IStorage.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="73" lean-forward="false" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
+          <folding>
+            <marker date="1512651067717" expanded="true" signature="30:335" ph="{...}" />
+            <marker date="1512651067717" expanded="true" signature="62:333" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IBrewingMaterial.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <folding>
+            <marker date="1512649457719" expanded="true" signature="30:191" ph="{...}" />
+            <marker date="1512649457719" expanded="true" signature="70:189" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IBeer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="19" />
+          <folding>
+            <marker date="1512649457812" expanded="true" signature="45:281" ph="{...}" />
+            <marker date="1512649457812" expanded="true" signature="74:279" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/BeerRepoImplementationA.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="56" />
+          <folding>
+            <marker date="1512651436543" expanded="true" signature="6:61" ph="..." />
+            <marker date="1512651436543" expanded="true" signature="97:638" ph="{...}" />
+            <marker date="1512651436543" expanded="true" signature="158:636" ph="{...}" />
+            <marker date="1512651436543" expanded="true" signature="202:279" ph="{...}" />
+            <marker date="1512651436543" expanded="true" signature="319:396" ph="{...}" />
+            <marker date="1512651436543" expanded="true" signature="434:511" ph="{...}" />
+            <marker date="1512651436543" expanded="true" signature="553:630" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/BeerRepoImplementationB.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="56" />
+          <folding>
+            <marker date="1512651436657" expanded="true" signature="6:61" ph="..." />
+            <marker date="1512651436657" expanded="true" signature="97:638" ph="{...}" />
+            <marker date="1512651436657" expanded="true" signature="158:636" ph="{...}" />
+            <marker date="1512651436657" expanded="true" signature="202:279" ph="{...}" />
+            <marker date="1512651436657" expanded="true" signature="319:396" ph="{...}" />
+            <marker date="1512651436657" expanded="true" signature="434:511" ph="{...}" />
+            <marker date="1512651436657" expanded="true" signature="553:630" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/BrewingMaterialRepoImplementationA.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="56" />
+          <folding>
+            <marker date="1512651436577" expanded="true" signature="6:61" ph="..." />
+            <marker date="1512651436577" expanded="true" signature="97:693" ph="{...}" />
+            <marker date="1512651436577" expanded="true" signature="180:691" ph="{...}" />
+            <marker date="1512651436577" expanded="true" signature="235:312" ph="{...}" />
+            <marker date="1512651436577" expanded="true" signature="363:440" ph="{...}" />
+            <marker date="1512651436577" expanded="true" signature="489:566" ph="{...}" />
+            <marker date="1512651436577" expanded="true" signature="608:685" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/BrewingMaterialRepoImplementationB.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="56" />
+          <folding>
+            <marker date="1512651436641" expanded="true" signature="6:61" ph="..." />
+            <marker date="1512651436641" expanded="true" signature="97:693" ph="{...}" />
+            <marker date="1512651436641" expanded="true" signature="180:691" ph="{...}" />
+            <marker date="1512651436641" expanded="true" signature="235:312" ph="{...}" />
+            <marker date="1512651436641" expanded="true" signature="363:440" ph="{...}" />
+            <marker date="1512651436641" expanded="true" signature="489:566" ph="{...}" />
+            <marker date="1512651436641" expanded="true" signature="608:685" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/IOrderService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/StorageRepoImplementationA.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="56" />
+          <folding>
+            <marker date="1512651436525" expanded="true" signature="6:61" ph="..." />
+            <marker date="1512651436525" expanded="true" signature="97:653" ph="{...}" />
+            <marker date="1512651436525" expanded="true" signature="164:651" ph="{...}" />
+            <marker date="1512651436525" expanded="true" signature="211:288" ph="{...}" />
+            <marker date="1512651436525" expanded="true" signature="331:408" ph="{...}" />
+            <marker date="1512651436525" expanded="true" signature="449:526" ph="{...}" />
+            <marker date="1512651436525" expanded="true" signature="568:645" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/TreasuryRepoImplementationB.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="56" />
+          <folding>
+            <marker date="1512651436607" expanded="true" signature="6:61" ph="..." />
+            <marker date="1512651436607" expanded="true" signature="97:658" ph="{...}" />
+            <marker date="1512651436607" expanded="true" signature="166:656" ph="{...}" />
+            <marker date="1512651436607" expanded="true" signature="214:291" ph="{...}" />
+            <marker date="1512651436607" expanded="true" signature="335:412" ph="{...}" />
+            <marker date="1512651436607" expanded="true" signature="454:531" ph="{...}" />
+            <marker date="1512651436607" expanded="true" signature="573:650" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/StorageRepoImplementationB.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="56" />
+          <folding>
+            <marker date="1512651436593" expanded="true" signature="6:61" ph="..." />
+            <marker date="1512651436593" expanded="true" signature="97:653" ph="{...}" />
+            <marker date="1512651436593" expanded="true" signature="164:651" ph="{...}" />
+            <marker date="1512651436593" expanded="true" signature="211:288" ph="{...}" />
+            <marker date="1512651436593" expanded="true" signature="331:408" ph="{...}" />
+            <marker date="1512651436593" expanded="true" signature="449:526" ph="{...}" />
+            <marker date="1512651436593" expanded="true" signature="568:645" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/TreasuryRepoImplementationA.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="56" />
+          <folding>
+            <marker date="1512651436560" expanded="false" signature="6:61" ph="..." />
+            <marker date="1512651436560" expanded="true" signature="97:658" ph="{...}" />
+            <marker date="1512651436560" expanded="true" signature="166:656" ph="{...}" />
+            <marker date="1512651436560" expanded="true" signature="214:291" ph="{...}" />
+            <marker date="1512651436560" expanded="true" signature="335:412" ph="{...}" />
+            <marker date="1512651436560" expanded="true" signature="454:531" ph="{...}" />
+            <marker date="1512651436560" expanded="true" signature="573:650" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/IDonationService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="70" lean-forward="false" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
+          <folding>
+            <marker date="1512649616265" expanded="true" signature="59:228" ph="{...}" />
+            <marker date="1512649616265" expanded="true" signature="99:226" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/EntityFactories/ISalesFactory.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/IBeerRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1512651067670" expanded="false" signature="6:61" ph="..." />
+            <marker date="1512651067670" expanded="true" signature="97:281" ph="{...}" />
+            <marker date="1512651067670" expanded="true" signature="136:279" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/IBrewingMaterialRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          <folding>
+            <marker date="1512651067654" expanded="false" signature="6:61" ph="..." />
+            <marker date="1512651067654" expanded="true" signature="97:325" ph="{...}" />
+            <marker date="1512651067654" expanded="true" signature="147:323" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/ISalesService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="8" column="78" lean-forward="false" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+          <folding>
+            <marker date="1512651436673" expanded="false" signature="6:41" ph="..." />
+            <marker date="1512651436673" expanded="true" signature="73:280" ph="{...}" />
+            <marker date="1512651436673" expanded="true" signature="110:278" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/BeerServiceImplementationB.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <folding>
+            <marker date="1512656871585" expanded="true" signature="6:59" ph="..." />
+            <marker date="1512656871585" expanded="true" signature="91:1187" ph="{...}" />
+            <marker date="1512656871585" expanded="true" signature="152:1185" ph="{...}" />
+            <marker date="1512656871585" expanded="true" signature="583:754" ph="{...}" />
+            <marker date="1512656871585" expanded="true" signature="824:901" ph="{...}" />
+            <marker date="1512656871585" expanded="true" signature="964:1041" ph="{...}" />
+            <marker date="1512656871585" expanded="true" signature="1102:1179" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/DonationServiceImplementationB.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding>
+            <marker date="1512657020239" expanded="true" signature="6:59" ph="..." />
+            <marker date="1512657020239" expanded="true" signature="91:877" ph="{...}" />
+            <marker date="1512657020239" expanded="true" signature="160:875" ph="{...}" />
+            <marker date="1512657020239" expanded="true" signature="462:578" ph="{...}" />
+            <marker date="1512657020239" expanded="true" signature="636:713" ph="{...}" />
+            <marker date="1512657020239" expanded="true" signature="792:869" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/DonationServiceImplementationA.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="19" selection-end-column="8" />
+          <folding>
+            <marker date="1512656966005" expanded="true" signature="6:59" ph="..." />
+            <marker date="1512656966005" expanded="true" signature="91:877" ph="{...}" />
+            <marker date="1512656966005" expanded="true" signature="160:875" ph="{...}" />
+            <marker date="1512656966005" expanded="true" signature="462:578" ph="{...}" />
+            <marker date="1512656966005" expanded="true" signature="636:713" ph="{...}" />
+            <marker date="1512656966005" expanded="true" signature="792:869" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/SalesServiceImplementationA.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="18" selection-end-column="9" />
+          <folding>
+            <marker date="1512657081882" expanded="true" signature="6:59" ph="..." />
+            <marker date="1512657081882" expanded="true" signature="91:911" ph="{...}" />
+            <marker date="1512657081882" expanded="true" signature="154:909" ph="{...}" />
+            <marker date="1512657081882" expanded="true" signature="453:569" ph="{...}" />
+            <marker date="1512657081882" expanded="true" signature="662:739" ph="{...}" />
+            <marker date="1512657081882" expanded="true" signature="826:903" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/SalesServiceImplementationB.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+          <folding>
+            <marker date="1512657081913" expanded="true" signature="6:59" ph="..." />
+            <marker date="1512657081913" expanded="true" signature="91:911" ph="{...}" />
+            <marker date="1512657081913" expanded="true" signature="154:909" ph="{...}" />
+            <marker date="1512657081913" expanded="true" signature="453:569" ph="{...}" />
+            <marker date="1512657081913" expanded="true" signature="662:739" ph="{...}" />
+            <marker date="1512657081913" expanded="true" signature="826:903" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Controllers/DonationController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="48" lean-forward="false" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
+          <folding>
+            <marker date="1512657176691" expanded="true" signature="62:353" ph="{...}" />
+            <marker date="1512657176691" expanded="true" signature="100:351" ph="{...}" />
+            <marker date="1512657176691" expanded="true" signature="276:345" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Controllers/SalesController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+          <folding>
+            <marker date="1512657218099" expanded="true" signature="62:328" ph="{...}" />
+            <marker date="1512657218099" expanded="true" signature="97:326" ph="{...}" />
+            <marker date="1512657218099" expanded="true" signature="257:320" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/IBeerService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="8" selection-end-column="52" />
+          <folding>
+            <marker date="1512651844886" expanded="true" signature="59:272" ph="{...}" />
+            <marker date="1512651844886" expanded="true" signature="95:270" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Controllers/BeerController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <marker date="1512657440352" expanded="true" signature="6:41" ph="..." />
+            <marker date="1512657440352" expanded="true" signature="76:684" ph="{...}" />
+            <marker date="1512657440352" expanded="true" signature="110:682" ph="{...}" />
+            <marker date="1512657440352" expanded="true" signature="265:326" ph="{...}" />
+            <marker date="1512657440352" expanded="true" signature="431:501" ph="{...}" />
+            <marker date="1512657440352" expanded="true" signature="606:676" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/EntityFactories/IBeerFactory.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding>
+            <marker date="1512657775586" expanded="true" signature="66:196" ph="{...}" />
+            <marker date="1512657775586" expanded="true" signature="102:194" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/BeerServiceImplementationA.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="24" column="40" lean-forward="false" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+          <folding>
+            <marker date="1512657775570" expanded="false" signature="6:94" ph="..." />
+            <marker date="1512657775570" expanded="true" signature="126:1354" ph="{...}" />
+            <marker date="1512657775570" expanded="true" signature="187:1352" ph="{...}" />
+            <marker date="1512657775570" expanded="true" signature="709:921" ph="{...}" />
+            <marker date="1512657775570" expanded="true" signature="991:1068" ph="{...}" />
+            <marker date="1512657775570" expanded="true" signature="1131:1208" ph="{...}" />
+            <marker date="1512657775570" expanded="true" signature="1269:1346" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6B74CC51-E420-41DB-A63E-D788F99F0CBB/92/daa28a68/IRegistrationBuilder`3.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="179" column="69" lean-forward="false" selection-start-line="179" selection-start-column="69" selection-end-line="179" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/StorageImplementationA.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+          <folding>
+            <marker date="1512658665703" expanded="true" signature="30:555" ph="{...}" />
+            <marker date="1512658665703" expanded="true" signature="83:553" ph="{...}" />
+            <marker date="1512658665703" expanded="true" signature="310:387" ph="{...}" />
+            <marker date="1512658665703" expanded="true" signature="470:547" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/StorageImplementationB.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+          <folding>
+            <marker date="1512658676632" expanded="true" signature="30:555" ph="{...}" />
+            <marker date="1512658676632" expanded="true" signature="83:553" ph="{...}" />
+            <marker date="1512658676632" expanded="true" signature="310:387" ph="{...}" />
+            <marker date="1512658676632" expanded="true" signature="470:547" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BeerBrewery/Program.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services.cs" />
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/IBeerRepository.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        <state relative-caret-position="511">
+          <caret line="43" column="12" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
           <folding>
-            <marker date="1512582894442" expanded="true" signature="34:96" ph="{...}" />
-            <marker date="1512582894442" expanded="true" signature="73:94" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/IBrewingMaterialRepository.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-          <folding>
-            <marker date="1512582906916" expanded="true" signature="34:107" ph="{...}" />
-            <marker date="1512582906916" expanded="true" signature="84:105" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/IStorageRepository.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-          <folding>
-            <marker date="1512582917363" expanded="true" signature="34:99" ph="{...}" />
-            <marker date="1512582917363" expanded="true" signature="76:97" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Repositories/ITreasuryRepository.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-          <folding>
-            <marker date="1512582931176" expanded="true" signature="34:100" ph="{...}" />
-            <marker date="1512582931176" expanded="true" signature="77:98" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IBrewingMaterialStorage.cs" />
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IBeer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="32" />
-          <folding>
-            <marker date="1512584529827" expanded="true" signature="6:37" ph="..." />
-            <marker date="1512584529827" expanded="true" signature="98:303" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/ITreasury.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <marker date="1512584816718" expanded="true" signature="30:196" ph="{...}" />
-            <marker date="1512584816718" expanded="true" signature="63:194" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IBrewingMaterial.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="37" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-          <folding>
-            <marker date="1512584713562" expanded="true" signature="70:189" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Entities/IStorage.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1512584867288" expanded="true" signature="99:259" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/IDonationService.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-          <folding>
-            <marker date="1512584995858" expanded="true" signature="30:127" ph="{...}" />
-            <marker date="1512584995858" expanded="true" signature="70:125" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BeerBrewery/Services/ISalesService.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="76" lean-forward="false" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
-          <folding>
-            <marker date="1512585122635" expanded="true" signature="59:298" ph="{...}" />
-            <marker date="1512585122635" expanded="true" signature="132:296" ph="{...}" />
+            <marker date="1512659517450" expanded="true" signature="6:88" ph="..." />
+            <marker date="1512659517450" expanded="true" signature="111:1815" ph="{...}" />
+            <marker date="1512659517450" expanded="true" signature="140:530" ph="{...}" />
+            <marker date="1512659517450" expanded="true" signature="194:524" ph="{...}" />
+            <marker date="1512659517450" expanded="true" signature="571:1813" ph="{...}" />
+            <marker date="1512659517450" expanded="true" signature="653:1454" ph="{...}" />
+            <marker date="1512659517450" expanded="true" signature="1543:1576" ph="{...}" />
+            <marker date="1512659517450" expanded="true" signature="1653:1686" ph="{...}" />
+            <marker date="1512659517450" expanded="true" signature="1774:1807" ph="{...}" />
           </folding>
         </state>
       </provider>

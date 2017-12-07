@@ -1,10 +1,11 @@
-﻿using BeerBrewery.Entities;
+﻿using System;
+using BeerBrewery.Entities;
 
 namespace BeerBrewery.Services
 {
-    public interface ISalesService<T> where T: IBeer, IBrewingMaterial
+    public interface ISalesService
     {
-        (T item, int amount) BuyMerchandise (string itemName, int amount);
-        (T item, int amount) OrderMerchandise (string itemName, int amount);
+        int BuyMerchandise<T> (int amount) where T: IBeer, IBrewingMaterial;
+        int OrderMerchandise<T> (int amount) where T: IBeer, IBrewingMaterial;
     }
 }

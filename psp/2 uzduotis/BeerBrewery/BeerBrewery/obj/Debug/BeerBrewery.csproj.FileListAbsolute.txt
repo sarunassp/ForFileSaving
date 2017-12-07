@@ -1,0 +1,7 @@
+C:\Users\Lenovo\Desktop\3 kursas 1 pusmetis\psp\2 uzduotis\BeerBrewery\BeerBrewery\obj\Debug\BeerBrewery.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\3 kursas 1 pusmetis\psp\2 uzduotis\BeerBrewery\BeerBrewery\bin\Debug\BeerBrewery.exe
+C:\Users\Lenovo\Desktop\3 kursas 1 pusmetis\psp\2 uzduotis\BeerBrewery\BeerBrewery\bin\Debug\BeerBrewery.pdb
+C:\Users\Lenovo\Desktop\3 kursas 1 pusmetis\psp\2 uzduotis\BeerBrewery\BeerBrewery\bin\Debug\Autofac.dll
+C:\Users\Lenovo\Desktop\3 kursas 1 pusmetis\psp\2 uzduotis\BeerBrewery\BeerBrewery\bin\Debug\Autofac.xml
+C:\Users\Lenovo\Desktop\3 kursas 1 pusmetis\psp\2 uzduotis\BeerBrewery\BeerBrewery\obj\Debug\BeerBrewery.exe
+C:\Users\Lenovo\Desktop\3 kursas 1 pusmetis\psp\2 uzduotis\BeerBrewery\BeerBrewery\obj\Debug\BeerBrewery.pdb

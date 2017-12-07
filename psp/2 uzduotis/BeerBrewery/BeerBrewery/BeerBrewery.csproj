@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,21 +44,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BeerController.cs" />
+    <Compile Include="Controllers\DonationController.cs" />
+    <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Entities\BeerImplementationA.cs" />
+    <Compile Include="Entities\BeerImplementationB.cs" />
+    <Compile Include="Entities\BrewingMaterialImplementationA.cs" />
+    <Compile Include="Entities\BrewingMaterialImplementationB.cs" />
     <Compile Include="Entities\IBeer.cs" />
     <Compile Include="Entities\IBrewingMaterial.cs" />
     <Compile Include="Entities\IStorage.cs" />
     <Compile Include="Entities\ITreasury.cs" />
+    <Compile Include="Entities\StorageImplementationA.cs" />
+    <Compile Include="Entities\StorageImplementationB.cs" />
+    <Compile Include="Entities\TreasuryImplementationA.cs" />
+    <Compile Include="Entities\TreasuryImplementationB.cs" />
+    <Compile Include="EntityFactories\IBeerFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BeerRepoImplementationA.cs" />
+    <Compile Include="Repositories\BeerRepoImplementationB.cs" />
+    <Compile Include="Repositories\BrewingMaterialRepoImplementationA.cs" />
+    <Compile Include="Repositories\BrewingMaterialRepoImplementationB.cs" />
     <Compile Include="Repositories\IBeerRepository.cs" />
     <Compile Include="Repositories\IBrewingMaterialRepository.cs" />
     <Compile Include="Repositories\IStorageRepository.cs" />
     <Compile Include="Repositories\ITreasuryRepository.cs" />
+    <Compile Include="Repositories\StorageRepoImplementationA.cs" />
+    <Compile Include="Repositories\StorageRepoImplementationB.cs" />
+    <Compile Include="Repositories\TreasuryRepoImplementationA.cs" />
+    <Compile Include="Repositories\TreasuryRepoImplementationB.cs" />
+    <Compile Include="Services\BeerServiceImplementationA.cs" />
+    <Compile Include="Services\BeerServiceImplementationB.cs" />
+    <Compile Include="Services\DonationServiceImplementationA.cs" />
+    <Compile Include="Services\DonationServiceImplementationB.cs" />
+    <Compile Include="Services\IBeerService.cs" />
     <Compile Include="Services\IDonationService.cs" />
     <Compile Include="Services\ISalesService.cs" />
+    <Compile Include="Services\SalesServiceImplementationA.cs" />
+    <Compile Include="Services\SalesServiceImplementationB.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EntityFactories" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

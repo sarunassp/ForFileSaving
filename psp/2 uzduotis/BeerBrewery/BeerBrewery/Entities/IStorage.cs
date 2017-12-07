@@ -1,10 +1,11 @@
 ﻿namespace BeerBrewery.Entities
 {
-    public interface IStorage<T> where T : IBeer, IBrewingMaterial
+    public interface IStorage
     {
-        void Store (T item, int itemAmount);
-        T GetItem (int itemAmount);
-        int GetItemAmount (T item);
-        bool HasItem (T item);
+        int Capacity { get; set; }
+        string Name { get; set; }
+        decimal CostToStore { get; set; }
+        void Store<T> (int itemAmount) where T: IBeer, IBrewingMaterial;
+        void GetItem<T> (int itemAmount) where T: IBeer, IBrewingMaterial;
     }
 }
