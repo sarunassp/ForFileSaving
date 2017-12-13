@@ -1,0 +1,338 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 15.04.0 ] */
+
+/* [wxMaxima: title   start ]
+Lokalieji ekstremumai
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+A.Domarkas, VU
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Komanda "local_extr" randa n kintamųjų(n>=2) funkcijos f lokaliuosius ekstremumus.
+Randami funkcijos hesianas ir pagrindiniai minorai.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+local_extr(f):=block([vars,n,kt,M,M1,realonly:true],local(A),
+vars:listofvars(f),
+n:length(vars),
+solve(makelist(diff(f,vars[k]),k,1,n),vars),
+kt:map(sort,%%),
+A(k):=hessian(f,makelist(vars[i],i,1,k)),
+M:makelist(determinant(A(k)),k,1,n),
+M1:makelist((-1)^i*M[i],i,1,n),
+for k thru length(kt) do
+if lmin(ev(M,kt[k]))>0 then print(kt[k],"- local minimum, ",f_min=subst(kt[k],f))
+elseif  lmin(ev(M1,kt[k]))>0 then print(kt[k],"- local maximum, ",f_max=subst(kt[k],f))
+elseif (n=2 and ev(M[n],kt[k])<0) or freeof(0,ev(M,kt[k])) then  print(kt[k],"- saddle point")
+else print(kt[k],"- we must examine the critical point by some other means")
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+1. 
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:x^2+y^2+(z+1)^2-x*y+x;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+local_extr(f);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+2.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:x^4-y^4;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+local_extr(x^4-y^4);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Hesianas kritiniame taške [0,0] yra nulinė matrica. Todėl čia atsakymas negaunamas.
+Tolimesniam tyrimui reikia nagrinėti aukštesnės eilės(>=3) išvestines.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+H:hessian(f,[x,y]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+subst([x=0,y=0],H);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+3.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:x^4+y^4;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+local_extr(x^4+y^4);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Hesianas kritiniame taške [0,0] yra nulinė matrica. Todėl čia atsakymas negaunamas.
+Tolimesniam tyrimui reikia nagrinėti aukštesnės eilės(>=3) išvestines.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+H:hessian(f,[x,y]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+subst([x=0,y=0],H);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+4.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+local_extr(x*y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+5.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+local_extr(x^3/3-x-y^3/3+y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+6.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+local_extr(x^3+3*x*y^2-39*x-36*y+26)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+7. Stewart, Calculus, 7ed, sec. 14.7, example 4
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+fpprintprec:6$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f:10*x^2*y-5*x^2-4*y^2-x^4-2*y^4;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+local_extr(f)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Detalus sprendimas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(odes)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq1:diff(f,x)=0;
+eq2:diff(f,y)=0;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Aišku, kad [x=0, y=0] yra šios sistemos sprendinys. 
+Todėl eq1 dalijame iš x ir išreiškiame x^2 :
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+solve(eq1/x,x^2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq3:expand(%[1]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+solx:[x=sqrt(rhs(%)),x=-sqrt(rhs(%))];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq4:subst(eq3,eq2),expand;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+soly:solvet(eq4,y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+float(%), numer;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Matome, kad šios reikšmės sutampa su anksčiau apskaičiuotomis.
+Pirmasis sprendinys iš soly netinka, nes įstačius į solx gaunami menami sprendinai:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+subst(soly[1],solx)$
+float(rectform(%));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Gauname, kad kritinių taškų tikslios išraiškos yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+kt:disp([0,0],[ev(solx[1],soly[2]),soly[2]],[ev(solx[2],soly[2]),soly[2]],
+          [ev(solx[1],soly[3]),soly[3]],[ev(solx[2],soly[3]),soly[3]])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Kritinių taškų išraiškas galima supaprastinti įvedus pažymėjimą:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+tr:omega=atan((3*sqrt(83))/25)/3$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Pavyzdžiui:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+subst(reverse(tr),expand(soly[2]));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Pavyzdžio pabaigai nubrėšime funkcijos f lygio linijas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(implicit_plot)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wximplicit_plot([f=3,f=7,f=-1,f=-3/2,f=-10,f=-20,f=-30],
+[x,-4,4],[y,-2,3],[legend,false]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+8 pvz
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:(x-1/2)^2*(x+1)^2+(y+1)^2*(y-1)^2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+local_extr(f);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+337/256;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+float(%), numer;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(implicit_plot)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ratprint:false$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wximplicit_plot([f=0.03,f=0.1,f=81/256,f=0.5,f=1,f=1.1,f=1.3,f=1.5],
+[x,-1.6,1.2],[y,-1.5,1.5],[legend,false],[box,false]),wxplot_size=[600,400];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(draw)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+set_draw_defaults(
+         xrange = [-2,1.5],
+         yrange = [-1.5,2],
+         grid   = true,
+         proportional_axes = xy,
+         fill_color = skyblue)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+with_slider_draw(
+        z, makelist(0.05*i, i, 1, 33),
+        key   = string(f=z),
+        implicit(f=z,x,-2,1.5,y, -1.5, 2));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+9 pvz, Demidovič 3642 
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:x^2+y^2+z^2+2*x+4*y-6*z;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+local_extr(f);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+10 pvz, Demidovič 3643 
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:x^3+y^2+z^2+12*x*y+2*z;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+local_extr(f);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq1:diff(f,x)=0;
+eq2:diff(f,y)=0;
+eq3:diff(f,z)=0;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+kt:solve([eq1,eq2,eq3]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Pagrindiniai minorai
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+M1:determinant(hessian(f,[x]));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+M2:determinant(hessian(f,[x,y]));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+M3:determinant(hessian(f,[x,y,z]));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+subst(kt[1],[M1,M2,M3]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+subst(kt[2],[M1,M2,M3]);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

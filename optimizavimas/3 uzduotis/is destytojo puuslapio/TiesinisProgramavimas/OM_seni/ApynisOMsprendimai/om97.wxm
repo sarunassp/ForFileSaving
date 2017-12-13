@@ -1,0 +1,115 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.1 ] */
+
+/* [wxMaxima: comment start ]
+Apynis OM, p. 96
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Rasti nelygybių sistemos sprendinių aibės kraštutinius taškus
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[
+y1-y2<=4,
+-y1+2*y2-3*y3<=2,
+3*y1+y2-y3<=0,
+y1+3*y2+3*y3<=-2,
+4*y1-y3<=5,
+y3<=3,
+3*y1+y2+3*y3<=6];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+length(apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+1 būdas. Naudosime netiesinės optimizacijos paketą "nopt"( autorius: A.Domarkas)
+Komanda minimize_nopt randa (daugeliu atvejų visus) sprendinius.
+Mininimizuojant funkciją f = 1 randami visi apribojimų aibės kraštutiniai taškai.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(nopt)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sol:minimize_nopt(1,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ats:makelist(%[k],k,2,length(%));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+2 būdas
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Nelygybes paverčiame lygybėmis ir sprendžiame visus variantus sistemų iš 7 po 3.
+Yra 35 variantai, nes
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+binomial(7,3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr1:makelist(lhs(apr[k])=rhs(apr[k]),k,1,length(apr));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+full_listify(powerset(setify(apr1), 3))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+map(solve,%)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Visi sprendiniai yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+s:map(flatten,%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Atrenkame tuos taškus, kurie tenkina apribojimus:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+aprb:apply("and",apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+krast:sublist(s,lambda([e],ev(aprb,e)));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+length(krast);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist(subst(krast[k],[y1,y2,y3]),k,1,9);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Panaikiname pasikartojančius taškus:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+listify(setify(%));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Gavome tuos pačius penkis kraštutinius taškus kaip ir pirmuoju būdu.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+ats;
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

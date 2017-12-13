@@ -1,0 +1,5 @@
+C:\Users\Lenovo\Desktop\3 kursas 1 pusmetis\psp\3 uzduotis\TreciaUzduotis\ExtensionObjects\bin\Debug\ExtensionObjects.exe
+C:\Users\Lenovo\Desktop\3 kursas 1 pusmetis\psp\3 uzduotis\TreciaUzduotis\ExtensionObjects\bin\Debug\ExtensionObjects.pdb
+C:\Users\Lenovo\Desktop\3 kursas 1 pusmetis\psp\3 uzduotis\TreciaUzduotis\ExtensionObjects\obj\Debug\ExtensionObjects.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\3 kursas 1 pusmetis\psp\3 uzduotis\TreciaUzduotis\ExtensionObjects\obj\Debug\ExtensionObjects.exe
+C:\Users\Lenovo\Desktop\3 kursas 1 pusmetis\psp\3 uzduotis\TreciaUzduotis\ExtensionObjects\obj\Debug\ExtensionObjects.pdb

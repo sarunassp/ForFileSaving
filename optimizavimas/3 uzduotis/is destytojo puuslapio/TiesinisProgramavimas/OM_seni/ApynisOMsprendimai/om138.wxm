@@ -1,0 +1,62 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.1 ] */
+
+/* [wxMaxima: comment start ]
+OM 138 psl.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(simplex)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f:x1-2*x2+3*x3-x4-2*x5;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[2*x1-3*x2+x3-x4-x5=5,x1-4*x2+x3+x5=6,3*x1+2*x2+3*x3-6*x4-5*x5=12];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_lp(f, apr),nonegative_lp=true;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Dualusis uždavinys: Reikia rasti max F su apribojimais aprd.
+Konstruojame dualų uždavinį:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+map(rhs,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+F:%.[y1,y2,y3];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A:coefmatrix(apr,[x1,x2,x3,x4,x5]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+B:transpose(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+B.[y1,y2,y3]<=transpose(coefmatrix([f],[x1,x2,x3,x4,x5]));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+aprd:makelist(lhs(%)[k,1]<=rhs(%)[k,1],k,1,5);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_lp(F,aprd);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Matome kad abu uždaviniai yra neaprėžti.
+   [wxMaxima: comment end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

@@ -16,7 +16,12 @@ namespace BeerBrewery
             builder.RegisterServices ();
             builder.RegisterControllers ();
 
-            builder.Build ();
+            var container = builder.Build ();
+
+            using (var scope = container.BeginLifetimeScope ())
+            {
+                
+            }
             
             Console.WriteLine ("success");
         }
@@ -41,7 +46,7 @@ namespace BeerBrewery
         
         public static void RegisterRepositories (this ContainerBuilder builder)
         {
-            
+            builder.Register<BeerRepoImplementationA> ().Named<IBeerRepository> ("beeerRepoA");
         }
 
         public static void RegisterServices (this ContainerBuilder builder)

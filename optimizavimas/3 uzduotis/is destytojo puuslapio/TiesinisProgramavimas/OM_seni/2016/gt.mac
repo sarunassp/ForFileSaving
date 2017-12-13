@@ -1,0 +1,380 @@
+
+/*
+gt  - package for solving game theory problems(see [1]).
+version 2.01,  2015.10.24
+Copyright (C)  A.Domarkas 2015
+
+gt package is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+
+[1] E.N.Barron, Game theory. An Introduction, second ed., John Wiley & Sons, Inc., 2013.
+*/
+
+/*
+gt package functions:
+*/
+
+/*
+maximize_mlp  and minimize_mlp solves linear programming problems with multiple number of solutions.
+This functions  returns list of extreme points of solutions.
+*/
+
+maximize_mlp(f,apr):=block([m,v,n,f0],
+solving(sis):=block([],
+if length(sis)=length(listofvars(sis))
+then solve(sis) else solve(sis,listofvars(sis))
+),
+m:length(apr),
+v:sort(listofvars(apr)),
+n:length(v),
+if constantp(f) then n:n+1,
+linsolvewarn:false,
+f0:maximize_lp(f,apr)[1],
+makelist(lhs(apr[k])=rhs(apr[k]),k,1,m),
+powerset(setify(%%),n-1),
+full_listify(%%),
+makelist(append(%%[k],[f=f0]),k,1,length(%%)),
+map(solving,%%),
+delete([],%%),
+map(first,%%),
+sublist(%%,lambda([x],sort(listofvars(x))=v )),
+sublist(%%,lambda([x],apply("and",subst(x,apr)))),
+map(sort,%%),
+listify(setify(%%)),
+append([f0],%%)
+)$
+
+minimize_mlp(f,apr):=block([m,v,n,f0],
+solving(sis):=block([],
+if length(sis)=length(listofvars(sis))
+then solve(sis) else solve(sis,listofvars(sis))
+),
+m:length(apr),
+v:sort(listofvars([f,apr])),
+n:length(v),
+if constantp(f) then n:n+1,
+linsolvewarn:false,
+f0:minimize_lp(f,apr)[1],
+makelist(lhs(apr[k])=rhs(apr[k]),k,1,m),
+powerset(setify(%%),n-1),
+full_listify(%%),
+makelist(append(%%[k],[f=f0]),k,1,length(%%)),
+map(solving,%%),
+delete([],%%),
+map(first,%%),
+sublist(%%,lambda([x],sort(listofvars(x))=v )),
+sublist(%%,lambda([x],apply("and",subst(x,apr)))),
+map(sort,%%),
+listify(setify(%%)),
+append([f0],%%)
+)$
+
+/*
+ext(apr) computes extreme points of apr
+*/
+
+ext(apr):=block([var,fs,cs,ap,s,S,m],
+var:sort(listofvars(apr)),
+s:apply("+",var),
+fs:append([1,s,-s],var,-var),
+ap(k):=subst(apr[k]=(lhs(apr[k])=rhs(apr[k])),apr),
+cs:makelist(ap(k),k,1,length(apr)),
+S:[],
+for f in fs do
+for c in cs do
+(
+m:minimize_lp(f,c),
+if listp(m) then
+S:cons(subst(m[2],var),S)
+),
+listify(setify(S))
+)$
+
+/*
+vlow(A) and vupp(A) computes lower  and upper values of the game. 
+[1],  14-16
+*/
+
+vlow(A):=block([rows,cols],
+[rows,cols]:matrix_size(A),
+lmax(makelist(lmin(A[i]),i,1,rows)))$
+
+vupp(A):=block([rows,cols],
+[rows,cols]:matrix_size(A),
+lmin(makelist(lmax(transpose(A)[j]),j,1,cols)))$
+
+/*
+saddle_points_indices(A) find indices of saddle points of matrix A
+(pure strategies of the game). [1], 15-16
+*/
+
+saddle_points_indices(A):=block([rows,cols,v,s1,s2],
+[rows,cols]:matrix_size(A),
+v:vlow(A),
+if v<vupp(A) then
+(print("saddle points not exists"), return({})) 
+else
+makelist(lmin(A[i]),i,1,rows),
+s1:setify(sublist_indices(%%,lambda([x],x=v))),
+makelist(lmax(transpose(A)[j]),j,1,cols),
+s2:setify(sublist_indices(%%,lambda([x],x=v))),
+cartesian_product (s1, s2)
+)$
+
+/*
+remdrows(A) and remdcols(A) remove dominated rows and cols from matrix A.
+[1], 38-41
+*/
+
+remdrows(A):=block([n,m,_rl,domrow], local(domrow),
+load(simplex),
+[n,m]:matrix_size(A),
+domrow(i,A):=block([],
+delete(i,makelist(k,k,1,n)),
+makelist(row(A,k),k,%%),
+sum(t[k]*%%[k],k,1,n-1)-row(A,i),
+list_matrix_entries(%%),
+append(makelist(%%[k]>=0,k,1,m),makelist(t[k]>=0,k,1,n-1),
+makelist(t[k]<=1,k,1,n-1),[sum(t[k],k,1,n-1)=1]),
+minimize_lp(1,%%),
+is(%%[1]=1)
+),
+_rl:[],
+for k thru n do
+if domrow(k,A) then
+(
+print(concat("row ",k," is dominated and removed" )),
+_rl:endcons(k,_rl)
+),
+funmake(submatrix,endcons(A,_rl)),
+ev(%%, nouns)
+)$
+
+remdcols(A):=block([n,m,_cl,domcol], local(domcol),
+load(simplex),
+[n,m]:matrix_size(A),
+domcol(i,A):=block([],
+delete(i,makelist(k,k,1,m)),
+makelist(col(A,k),k,%%),
+sum(t[k]*%%[k],k,1,m-1)-col(A,i),
+list_matrix_entries(%%),
+append(makelist(%%[k]<=0,k,1,n),makelist(t[k]>=0,k,1,m-1),
+makelist(t[k]<=1,k,1,m-1),[sum(t[k],k,1,m-1)=1]),
+minimize_lp(1,%%),
+is(%%[1]=1)
+),
+_cl:[],
+for k thru m do
+if domcol(k,A) then
+(
+print(concat("col ",k," is dominated and removed" )),
+_cl:endcons(k,_cl)
+),
+funmake(submatrix,cons(A,_cl)),
+ev(%%, nouns)
+)$
+
+/*
+solveMgame(A) solves matrix game.
+msolveMgame(A) solves matrix game with multiple number of solutions.
+Sets of optimal strategies is returned as convex hull of extreme points.
+[1], ch. 1, 2
+*/
+
+solveMgame(A):=
+block([B,U,W,u,w,f1,f2,apr1,apr2,s1,s2,ss2,d,xs,ys,nonegative_lp:true],
+load(simplex),
+B:A-lmin(list_matrix_entries(A))+1,
+[m,n]:matrix_size(A),
+U:makelist(concat(u,k),k,1,m),
+W:makelist(concat(w,k),k,1,n),
+apr1:makelist((transpose(B).U)[k][1]>=1,k,1,n),
+f1:sum(U[k],k,1,m),
+minimize_lp(f1,apr1),
+s1:subst(%%[2],U),
+f2:sum(W[k],k,1,n),
+apr2:makelist((B.W)[k][1]<=1,k,1,m),
+ss2:maximize_lp(f2,apr2),
+s2:subst(%%[2],W),
+d:ss2[1],
+xs:s1/d,
+ys:s2/d,
+[xs,ys,xs.A.ys]
+)$
+
+msolveMgame(A):=block([sol,solx,soly],
+linsolvewarn:false,
+sol:solveBMgame(A,-A),
+makelist(sol[k][1],k,1,length(sol)),
+listify(setify(%%)),
+sublist(%%,lambda([x],listofvars(x)=[])),
+if length(%%)>=2 then solx:convexhull(%%) else solx:%%[1],
+makelist(sol[k][2],k,1,length(sol)),
+sublist(%%,lambda([x],listofvars(x)=[])),
+listify(setify(%%)),
+if length(%%)>=2 then soly:convexhull(%%) else soly:%%[1],
+[solx,soly,last(sol)[3]]
+)$
+
+/*
+solveBMgame(A,B) solves bimatrix game.
+[[1], ch. 3.
+*/
+
+solveBMgame(A,B):=block([m,n,X,Y,F,M,N,v,p,q,pm,pn,S,sis,sol,i,j,k],
+[m,n]:matrix_size(A),
+X:makelist(concat(x,k),k,1,m),
+Y:makelist(concat(y,k),k,1,n),
+F:X.(A+B).Y-p-q,
+apr:append(
+makelist(A[k].Y<=p,k,1,m),
+makelist(transpose(B)[k].X<=q,k,1,n),
+[sum(X[k],k,1,m)=1,sum(Y[k],k,1,n)=1],
+makelist(X[k]>=0,k,1,m),
+makelist(Y[k]>=0,k,1,n)),
+M:makelist(k,k,1,m),
+pm:listify(powerset(setify(M))),
+N:makelist(k,k,1,n),
+pn:listify(powerset(setify(N))),
+v:listofvars(apr),
+S:[],
+for i thru 2^m do
+for j thru 2^n do
+(
+sis:append(
+makelist(A[k].Y=p,k,sublist(M,lambda([k],not member(k,pm[i])))),
+makelist(transpose(B)[k].X=q,k,
+sublist(N,lambda([k],not member(k,pn[j])))),
+[sum(X[k],k,1,m)=1,sum(Y[k],k,1,n)=1,F=0],
+makelist(X[k]=0,k,listify(pm[i])),
+makelist(Y[k]=0,k,listify(pn[j]))),
+sol:solve(sis,v),
+ev(apr,%%),
+map(is,%%),
+if freeof(false,%%) then S:endcons(ev([X,Y,p,q],sol),S)
+),
+sublist(S,lambda([x],listofvars(x)=[]))
+)$
+
+/*
+clist(n) create list of coalitions of n payers
+*/
+
+clist(n):=block([S,S1],
+S:[],
+S1:setify(makelist(k,k,1,n)),
+for k thru n do
+S:append(S,listify(powerset(S1,k))),
+S)$
+
+/*
+normalize(G) normalizes game G.
+[1], 295-297.
+*/
+
+normalize(G):=block([n,fun,S],local(fun),
+n:cardinality(G[1]),
+fun(x):=block([S,c],
+S:first(lhs(x)),
+v(G[1])-sum(v({k}),k,1,n),
+(v(S)-apply("+",create_list(v({i}),i,listify(S))))/%%,
+v(S)=ev(%%,G[2])),
+[G[1],map(fun,G[2])]
+)$
+
+/*
+e(K,x) computes the excess of coalition K for imputation x.
+[1], p. 298.
+*/
+
+e(K,x):=block([],
+L:listify(K),
+create_list(x[i],i,L),
+v(K)-sum(%%[i],i,1,length(L)),
+subst(G[2],%%)
+)$
+
+/*
+core(G) computes core of game G.
+least_core computes least epsilon and least core of game G.
+Allocations is returned as convex hull of extreme points.
+[1], 231-248.
+*/
+
+least_core(G):=block([n,M,v,X,apr,s,sol],
+local(x,v),
+load(simplex),
+n:cardinality(G[1]),
+M:clist(n),
+map(v,M),
+val:subst(G[2],%%),
+X:makelist(x[k],k,1,n),
+makelist(e(M[k],x)<=epsilon,k,1,2^n-2),
+apr:endcons(sum(x[k],k,1,n)=val[2^n-1],%%),
+s:minimize_mlp(epsilon,apr),
+if length(s)=2 then sol:subst(s[2],X) else
+sol:convexhull(makelist(subst(s[k],X),k,2,length(s))),
+return([s[1],sol])
+)$
+
+core(G):=block([n,M,v,X,apr,s,sol],
+local(x,v),
+if least_core(G)[1]>0 then return([]),
+n:cardinality(G[1]),
+M:clist(n),
+map(v,M),
+val:subst(G[2],%%),
+X:makelist(x[k],k,1,n),
+makelist(e(M[k],x)<=0,k,1,2^n-2),
+apr:endcons(sum(x[k],k,1,n)=val[2^n-1],%%),
+s:minimize_mlp(1,apr),
+if length(s)=2 then sol:subst(s[2],X) else
+sol:convexhull(makelist(subst(s[k],X),k,2,length(s))),
+return(sol)
+)$
+
+/*
+ShapleyValue(G)  computes Shapley Value of game G.
+[1], 335-352
+*/
+
+ShapleyValue(G):=block([n,M,S,x,i,k],
+local(x),
+n:cardinality(G[1]),
+M:listify(powerset(G[1])),
+for k thru n do
+(S:sublist(M,lambda([x],member(k,x))),
+x[k]:sum((v(S[i])-v(setdifference(S[i],{k})))*
+(cardinality(S[i])-1)!*(n-cardinality(S[i]))!/n!,i,1,length(S))),
+subst(G[2],makelist(x[k],k,1,n)),
+subst(v({})=0,%%)
+)$
+
+/*
+nucleolus(G) computes nucleolus of game G.
+[1], 319-335.
+*/
+
+nucleolus(G):=block([lc],
+lc:least_core(G),
+if freeof(convexhull,lc[2]) then return(lc[2])
+else
+first(lc[2]),
+apply("+",%%)/length(%%)
+)$
+
+/*
+belong(x,C) returns true if x belongs  to convex hull C, otherwise returns false. 
+*/
+
+belong(x,C):=([],
+load(simplex),
+sum(t[k]*first(C)[k],k,1,length(first(C)))-x,
+append(makelist(%%[k]=0,k,1,length(x)),
+makelist(t[k]>=0,k,1,length(first(C))),
+makelist(t[k]<=1,k,1,length(first(C))),
+[sum(t[k],k,1,length(first(C)))=1]),
+minimize_lp(1,%%),
+is(%%[1]=1)
+)$
+

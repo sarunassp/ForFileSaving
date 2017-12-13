@@ -1,0 +1,35 @@
+
+Nopt(f,apr):=block([papr,vars,r,s,S,SS,k,ats1,prast,ratprint:false],
+vars:sort(listofvars([f,apr])),
+powerlist(s):=
+block([k,x],makelist(lhs(s[k])-rhs(s[k]),k,1,length(s)),
+setify(%%),powerset(%%),full_listify(%%)),
+dlambda(x):=
+sublist(x,lambda([e],freeof(%lambda,e))),
+extr(f,ap):=block([L,k,_n,algebraic:true],_n:length(ap),
+L:sum(%lambda[k]*ap[k],k,1,_n)+f,sist:
+append(makelist(diff(L,vars[k]),k,1,length(vars)),ap),
+algsys(sist,append(vars,makelist(%lambda[k],k,1,_n))),
+sublist(%%,lambda([e],freeof(%i,e)))),
+tink(r):=block([ratprint:false],
+g(x):=if op(x)="=" then is(abs(lhs(x)-rhs(x))<1/10^6) 
+elseif op(x)="<=" then is(lhs(x)-rhs(x)<1/10^6) 
+elseif op(x)=">=" then is(lhs(x)-rhs(x)>-1/10^6) ,
+ev(apr,r),ratsimp(%%),map(g,%%),
+freeof(false,%%) and freeof(unknown,%%)),
+testas(x,y):=block([],ev(f,x)<=ev(f,y)),papr:powerlist(apr),
+prast(x):=if not floatnump(x) then rootscontract(ratsimp(x)) else x,
+makelist(extr(f,papr[k]),k,1,length(papr)),
+r:delete([],%%),S:[],for k thru length(r) do S:append(S,r[k]),S:
+sublist(S,tink),S:map(dlambda,S),S:setify(S),S:listify(S),
+SS:sort(S,testas),
+ats1:[subst(SS[1],f),SS[1]],if length(SS)>1 
+then for k from 2 thru length(SS) do 
+if abs(ev(f,SS[k])-ats1[1])<1/10^6 then ats1:endcons(SS[k],ats1),
+fullmap(prast,ats1))$
+
+minimize_nopt(f,apr):=Nopt(f,apr)$
+
+maximize_nopt(f,apr):=block([],Nopt(-f,apr),append([-%%[1]],
+makelist(%%[k],k,2,length(%%))))$
+

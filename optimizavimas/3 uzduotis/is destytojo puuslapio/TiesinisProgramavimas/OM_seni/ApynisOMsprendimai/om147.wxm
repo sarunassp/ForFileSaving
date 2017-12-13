@@ -1,0 +1,113 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.1 ] */
+
+/* [wxMaxima: comment start ]
+OM 147 psl. Rasti max
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(simplex)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f:y1+2*y2-3*y3;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[
+y1+2*y3<=4,
+y2+y3<=-2,
+y1-y2<=5,
+y2<=0,
+y1+y2-y3<=7,
+y1+y2+2*y3<=5,
+2*y2+y3<=2
+];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_lp(f, apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Todėl tikslo funkcija yra neaprėžta ir uždavinys sprendinių neturi.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Dualusis uždavinys: Reikia rasti min F su apribojimais aprd.
+Konstruojame dualų uždavinį:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+map(rhs,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+F:%.[x1,x2,x3,x4,x5,x6,x7];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A:coefmatrix(map(lhs,apr),[y1,y2,y3]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+B:transpose(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+B.[x1,x2,x3,x4,x5,x6,x7]=transpose(coefmatrix([f],[y1,y2,y3]));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+aprd:makelist(lhs(%)[k,1]=rhs(%)[k,1],k,1,3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_lp(F,aprd),nonegative_lp=true;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Todėl leistinoji aibė yra tuščia. Tai galima įsitikinti tiesiogiai
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+bazic_sols(sist):=block([X,s,var,baz],
+X:sort(listofvars(sist)),
+s:length(X)-length(sist),
+var:full_listify(powerset(setify(X), s)),
+baz:[],
+for k thru length(var) do
+(
+append(var[k],sist),
+solve(%%),
+subst(%%,X),
+if freeof(X,%%) then
+baz:cons(%%,baz)
+),
+setify(baz),
+listify(%%)
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame bazinius sprendinius.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+baz:bazic_sols(aprd);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame visus kraštutinius taškus:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+krast:sublist(baz,lambda([e],lmin(e)>=0));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Matome, kad nėra kraštutinių taškų su neneigiamomis komponentėmis.
+   [wxMaxima: comment end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

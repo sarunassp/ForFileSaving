@@ -1,0 +1,69 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.1 ] */
+
+/* [wxMaxima: input   start ] */
+load(draw)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(nopt)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ratprint:false$
+fpprintprec:4$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f:(x1-1)^2+(x2+1)^2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[x1^2+x2^2>=9,x1>=0,3*x1-4*x2<=0];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+s:minimize_nopt(f,apr),expand;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+float(%), numer;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sritis:apply("and", apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+set_draw_defaults(
+         x_voxel = 50,
+         y_voxel = 50,
+         xrange = [-2,6],
+         yrange = [-2,6],
+         grid   = true,
+         proportional_axes = xy,
+         fill_color = skyblue)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+with_slider_draw(
+        z, makelist(9.8+i, i, -2, 8),
+        region(sritis, x1, -2, 6, x2, -2, 6),
+        key   = string(ev(f,nouns)=z),
+        implicit(f=z,x1,-2,6,x2, -2, 6));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Optimalus taškas yra apskritimo x1^2+x2^2=9  ir tiesės 3*x1-4*x2=0 susikirtimo taškas.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+solve([x1^2+x2^2=9,3*x1-4*x2=0])[1];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+float(%);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

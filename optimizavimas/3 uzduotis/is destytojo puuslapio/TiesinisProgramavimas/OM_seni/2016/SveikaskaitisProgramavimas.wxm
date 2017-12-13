@@ -1,0 +1,514 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 13.04.2 ] */
+
+/* [wxMaxima: title   start ]
+Sveikaskaitis programavimas
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+A. Domarkas, VU, 2014
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: section start ]
+pavyzdys
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+Rasti maksimumà sveikøjø skaièiø aibëje.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:30*x1 + 20*x2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[3*x1+2*x2<=20, 2*x1<=14, x1+x2<=16, x1+2*x2<=18, x1>=0,x2>=0];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Detalus sprendimas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+v:listofvars([f,apr]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+n:length(v);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sritis:apply("and",apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+g(x):=ev(f,[x1=x[1],x2=x[2]]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+h(x):=ev(sritis,[x1=x[1],x2=x[2]]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+s:create_list([i,j],i,0,10,j,0,10)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+s1:sublist(s,lambda([x],h(x)));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+length(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+fv:map(g,s1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+m:lmax(fv);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sublist(s1,lambda([x],g(x)=m));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Atsakymas: f_max=200, kai x1=2, x2=7; x1=4, x2=4; x1=6, x2=1.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(draw)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+set_draw_defaults(
+         x_voxel = 30,
+         y_voxel = 30,
+         xrange = [-1,10],
+         yrange = [-1,10],
+         grid   = true,
+         proportional_axes = xy,
+         fill_color = skyblue)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxdraw2d(region(sritis,x1,0,10,x2,0,10),
+         point_type    = circle,
+         point_size    = 1,
+         points(s1));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+with_slider_draw(
+        z, makelist(50*i, i, 0, 4),
+        region(sritis, x1, -1, 10, x2, -1, 9),
+        key   = string(ev(f,nouns)=z),
+        color=red,
+        line_width = 2,
+        implicit(f=z,x1,-1,10,x2, -1, 9),
+        key="",
+        color=blue,
+        point_type=circle,
+        points(s1)
+        );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Iðtirkime atvejá, kai reikia rasti maksimumà realiøjø skaièiø aibëje.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Su simplex visø sprendiniø negauname:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(simplex)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_lp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+subst(%[2],[x1,x2]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Su nopt: ((C), A.Domarkas)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(nopt)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+spr:maximize_nopt(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A:subst(spr[2],[x1,x2]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+B:subst(spr[3],[x1,x2]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ats:A*(1-t)+B*t;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+kai 0 <= t <=1.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: section start ]
+ilp programa((C) A.Domarkas)
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_ilp(f,apr):=block([v,n,i,k,simplex,xv,fv,g,h,s,m],
+load(simplex),
+v:listofvars([f,apr]),
+n:length(v),
+for k thru n do
+(minimize_lp(v[k],apr)[1],if numberp(%%) then m[k]:round(%%) else m[k]:-10,
+maximize_lp(v[k],apr)[1],if numberp(%%) then M[k]:round(%%) else M[k]:10),
+xv:makelist(v[i]=x[i],i,1,n),
+g(x):=ev(f,xv),
+h(x):=apply("and",ev(apr,xv)),
+flatten(makelist([v[i],m[i],M[i]],i,1,n)),
+cons (v,%%),
+apply(create_list,%%),
+s:sublist(%%,lambda([x],h(x))),
+fv:map(g,s),
+m:lmin(fv),
+sublist(s,lambda([x],g(x)=m)),
+cons(m,%%)
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_ilp(f,apr):=block([k],minimize_ilp(-f,apr),
+cons(-%%[1],makelist(%%[k],k,2,length(%%))))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+1 pavyzdþio sprendimas su ilp :
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_ilp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: section start ]
+ilp taikymo pavyzdþiai
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+2 pavyzdys. Rasti maksimumà sveikøjø skaièiø aibëje.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:9*x1+4*x2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[4*x1+3*x2<=11,x1>=0,x2>=0];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_ilp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Atsakymas: f_max=22, kai x1=2, x2=1.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+3 pavyzdys([3],  57 p.) Rasti maksimumà sveikøjø skaièiø aibëje.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:30*x1+20*x2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[10*x1+5*x2<=300,5*x1+4*x2<=200,15*x1+10*x2<=600,x1>=0,x2>=0];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_ilp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Atsakymas: f_max=1060, kai x1=12, x2=35; x1=14, x2=32; x1=6.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+4 pavyzdys([3],  59 p.) Rasti maksimumà sveikøjø skaièiø aibëje.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:0.8*x1+0.4*x2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[31*x1+19.5*x2<=1500,2*x1+3*x2>=200,x1>=0,x2>=0];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_ilp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Atsakymas: f_max=32.4, kai x1=10, x2=61.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+5 pavyzdys([2], 151 p.) Rasti maksimumà sveikøjø skaièiø aibëje.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:7*x1+4*x2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[3*x1+2*x2<=21,6*x1+3*x2<=37,x1>=0,x2>=0];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_ilp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Atsakymas: f_max=45, kai x1=3, x2=6.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+6 pavyzdys ([1], 191 p.) Rasti minimumà sveikøjø skaièiø aibëje.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:5*x1-x2+x3;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[3*x1-x2-x3=4, x1-x2+x3-x4=1, 2*x1+x2+2*x3+x5=7, x1>=0,x2>=0,x3>=0, x4>=0,x5>=0];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_ilp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_ilp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Gauname, kad yra tik vienas sveikaskaitis taðkas [2,1,1,1,0], kuris tenkina apribojimus.
+Todël sveikø skaièiø aibëje maksimumas ir minimumas sutampa
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Atsakymas: f_min=f_max=10, kai x1=2, x2=1,  x3=1,  x4=1,  x5=0.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+7 pavyzdys. Rasti minimumà sveikøjø skaièiø aibëje.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:2*x1+3*x2+4*x3-x4;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[x1+2*x2>=9,3*x2+x3>=9,x2+x4<=10,x1>=0,x2>=0,x3>=0,x4>=0];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_ilp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Atsakymas: f_min=10, kai x1=1, x2=4,  x3=0,  x4=6 arba x1=3, x2=3,  x3=0,  x4=7.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: section start ]
+Netiesinis sveikaskaitis programavimas
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+Rasti funkcijos minimumà ir maksimumà, kai x1 ir x2 yra sveikieji skaièiai.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:(x1-13)^2+(x2-14)^2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[(x1-8)^2+(x2-9)^2<=49,x1>=2,x2<=13,x1+x2<=24];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+v:listofvars([f,apr]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+n:length(v);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sritis:apply("and", apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame min ir max su programa nopt:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(nopt)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_nopt(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_nopt(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ratsimp(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+float(%), numer;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Sprendiniai nëra sveikaskaitiniai.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(draw)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+set_draw_defaults(
+         x_voxel = 30,
+         y_voxel = 30,
+         xrange = [0,20],
+         yrange = [0,20],
+         grid   = true,
+         proportional_axes = xy,
+         fill_color = skyblue)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxdraw2d( region(sritis, x1, 0, 20, x2, 0, 20),
+        key   = string(ev(f,nouns)=9/2),
+        implicit(f=9/2,x1,0,20,x2, 0, 20),
+        color=red,
+        key   = string(ev(f,nouns)=198),
+        implicit(f=198,x1,0,20,x2, 0, 20));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Detalus spendimas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+g(x):=ev(f,[x1=x[1],x2=x[2]]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+h(x):=ev(sritis,[x1=x[1],x2=x[2]]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+s:create_list([i,j],i,0,20,j,0,20)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+s1:sublist(s,lambda([x],h(x)));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+length(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+fv:map(g,s1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+lmax(fv);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+s2:sublist(s1,lambda([x],g(x)=185));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+lmin(fv);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+s3:sublist(s1,lambda([x],g(x)=5));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Atsakymas: f_max=185, kai x1=2, x2=6 arba x1=5, x2=3;
+                 f_min=5, kai x1=11, x2=13 arba x1=12, x2=12.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+wxdraw2d(region(sritis,x1,0,15,x2,0,15),
+         point_type    = circle,
+         point_size    = 1,
+         implicit(f=185,x1,0,20,x2, 0, 20),
+         implicit(f=5,x1,0,20,x2, 0, 20),
+         points(s1),
+         color=red,
+         points(s2),
+         points(s3)
+ );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Brëþinys su animacija:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+with_slider_draw(
+        z, makelist(5+20*i, i, 0, 9),
+        region(sritis, x1, 0, 15, x2, 0, 15),
+        key   = string(ev(f,nouns)=z),
+        implicit(f=z,x1,0,20,x2,0,20),
+        key="",
+        color=blue,
+        point_type=circle,
+        points(s1),
+        color=red,
+        points(s2),
+        points(s3));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: section start ]
+Literatûra
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+[1] A.Apynis. Optimizavimo metodai,  VU,  Vilnius,  2005
+[2] V.Èioèys, R.Jasilionis,  Matematinis programavimas, Vilnius, Mokslas, 1990
+[3] S.Puðkoius, Sprendimø priëmimo teorija, Vilnius, MRU, 2009
+[4] V.Bubelis, T.Medaiskis, A.Morkeliûnas, Operacijø tyrimo ávadas, Vilnius, VU, 2008
+   [wxMaxima: comment end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

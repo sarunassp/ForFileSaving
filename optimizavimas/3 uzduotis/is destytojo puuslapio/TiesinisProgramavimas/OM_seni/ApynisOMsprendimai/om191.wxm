@@ -1,0 +1,65 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.1 ] */
+
+/* [wxMaxima: title   start ]
+Sveikaskaitinis sprendinys
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_ilp(f,apr):=block([v,n,i,k,simplex,xv,fv,g,h,s,m],
+load(simplex),
+v:listofvars([f,apr]),
+n:length(v),
+for k thru n do
+(minimize_lp(v[k],apr)[1],if numberp(%%) then m[k]:round(%%) else m[k]:-10,
+maximize_lp(v[k],apr)[1],if numberp(%%) then M[k]:round(%%) else M[k]:10),
+xv:makelist(v[i]=x[i],i,1,n),
+g(x):=ev(f,xv),
+h(x):=apply("and",ev(apr,xv)),
+flatten(makelist([v[i],m[i],M[i]],i,1,n)),
+cons (v,%%),
+apply(create_list,%%),
+s:sublist(%%,lambda([x],h(x))),
+fv:map(g,s),
+m:lmin(fv),
+sublist(s,lambda([x],g(x)=m)),
+cons(m,%%)
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_ilp(f,apr):=block([k],minimize_ilp(-f,apr),
+cons(-%%[1],makelist(%%[k],k,2,length(%%))))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+OM 191 psl. Raskite sveikaskaitinius sprendinius
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:5*x1-x2+x3;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[3*x1-x2-x3=4, x1-x2+x3-x4=1, 2*x1+x2+2*x3+x5=7, x1>=0,x2>=0,x3>=0, x4>=0,x5>=0];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_ilp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_ilp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Gauname, kad yra tik vienas sveikaskaitis taškas [2,1,1,1,0], kuris tenkina apribojimus.
+Todėl sveikų skaičių aibėje maksimumas ir minimumas sutampa
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Atsakymas: f_min=f_max=10, kai x1=2, x2=1,  x3=1,  x4=1,  x5=0.
+   [wxMaxima: comment end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

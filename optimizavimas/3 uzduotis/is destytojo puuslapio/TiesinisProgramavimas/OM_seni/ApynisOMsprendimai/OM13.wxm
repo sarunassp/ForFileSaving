@@ -1,0 +1,62 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.1 ] */
+
+/* [wxMaxima: input   start ] */
+load(draw)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(simplex)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ratprint:false$
+fpprintprec:4$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f:2*x1+x2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[2*x1-x2>-2,x1-3*x2<=3,2*x1+3*x2>=6];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_lp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_lp(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sritis:apply("and", apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+set_draw_defaults(
+         x_voxel = 30,
+         y_voxel = 30,
+         xrange = [-2,6],
+         yrange = [-2,6],
+         grid   = true,
+         proportional_axes = xy,
+         fill_color = skyblue)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+with_slider_draw(
+        z, makelist(2+i, i, -2, 8),
+        region(sritis, x1, -2, 6, x2, -2, 6),
+        key   = string(ev(f,nouns)=z),
+        implicit(f=z,x1,-2,6,x2, -2, 6));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Tikslo funkcija yra neaprėžta. Todėl f_max=begalybei.
+f_min = f(0,2) = 2.
+   [wxMaxima: comment end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

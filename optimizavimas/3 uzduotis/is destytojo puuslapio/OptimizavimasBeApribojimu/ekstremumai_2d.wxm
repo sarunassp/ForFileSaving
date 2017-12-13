@@ -1,0 +1,327 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 17.10.x.unofficial ] */
+/* [wxMaxima: title   start ]
+Dviejų kintamųjų funkcijų ekstremumai
+   [wxMaxima: title   end   ] */
+
+
+/* [wxMaxima: comment start ]
+A.Domarkas, VU
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: comment start ]
+Čia naudojame atvirojo kodo CAS Maxima 5.41.0
+Maxima build date: 2017-10-03
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: comment start ]
+Apibrėžimas. 
+Taškas (a,b) yra vadinamas funkcijos z = f(x,y) lokalaus maksimumo tašku,
+jei f(x,y) ≤ f(a,b) su visais (x,y) iš taško (a,b) aplinkos.
+Taškas (a,b) yra vadinamas funkcijos f(x,y) lokalaus minimumo tašku,
+jei f(x,y) ≥ f(a,b) su visais (x,y) iš taško (a,b) aplinkos.
+Lokalaus minimumo ir lokalaus maksimumo taškai yra vadinami lokalaus
+ekstremumo taškais.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: comment start ]
+Apibrėžimas.
+Taškas (a,b), priklausantis funkcijos z = f(x,y) apibrėžimo sričiai,
+vadinamas kritiniu arba stacionariuoju tašku, jei abi dalinės išvestinės
+tame taške lygios nuliui arba bent viena neegzistuoja.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: comment start ]
+1 teorema. Būtinoji lokalaus ekstremumo sąlyga.
+Jei (a,b) yra funkcijos z = f(x,y) lokalaus ekstremumo taškas ir tame
+taške egzistuoja dalinės išvestinės, tai jos tame taške lygios nuliui:
+f'_x(a,b) = 0 ir f'_y(a,b) = 0.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: comment start ]
+2 teorema. Pakankamoji lokalaus ekstremumo sąlyga.
+Tegul  taškas (a,b) yra funkcijos z = f(x,y) kritinis taškas ir šio taško
+aplinkoje egzistuoja tolydžiosios antrosios išvestinės. Apibrėžkime
+A = f''_xx(a,b) ir D = f''_xx(a,b)f''_yy(a,b)- f''_xy(a,b)^2.
+ 
+Tada:
+1. jei D > 0 ir A < 0, tai (a,b) yra lokalaus maksimumo taškas;
+2. jei D > 0 ir A > 0, tai (a,b) yra lokalaus minimumo taškas;
+3. jei D < 0, tai taške (a,b) ekstremumo nėra, (a,b) yra balno taškas;
+4. jei D = 0, tai šis požymis nepritaikomas - reikia papildomo tyrimo.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: comment start ]
+Kritiniams taškams tirti apibrėžiame komandą  "testas":
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+testas(kt):=block(
+[A,B,C]:subst(kt,[diff(f,x,2),diff(f,x,1,y,1),diff(f,y,2)]),
+D: A*C-B^2,   
+if D>0 and A<0 then print("Taške ",kt,maksimumas=subst(kt,f))
+elseif D>0 and A>0 then print("Taške ",kt,minimumas=subst(kt,f))
+elseif D<0 then print("Taške ",kt,"ekstremumo nėra(balno taškas)")
+elseif D=0 then print("Taške ",kt,"reikia papildomo tyrimo"))$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Žr. [1], 210 p.; [2], 218 p.; [3]
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: comment start ]
+Pavyzdys(Žr. [2]). Rasime  funkcijos f ekstremumus.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f:x^3+y^3-3*x^2-3*y^2-9*x;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+L1:diff(f,x)=0; L2:diff(f,y)=0;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Randame kritinius taškus:
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+krit_taskai:solve([L1,L2],[x,y]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+map(testas,krit_taskai)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+wxcontour_plot(f, [x, -2, 4], [y, -1.5, 3.5], [legend,false],
+[gnuplot_preamble,"set cntrparam levels 24"])$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+2 pavyzdys. (Žr. [3])
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f:(x+y)*(x*y+x*y^2);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+L1:diff(f,x)=0; L2:diff(f,y)=0;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Randame kritinius taškus:
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+krit_taskai:solve([L1,L2],[x,y]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+map(testas,krit_taskai)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+wxcontour_plot(f, [x, 0, 1], [y, -1, 0], [legend,false],
+[gnuplot_preamble,"set cntrparam levels 36"])$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+3 pavyzdys. Rasime Himmelblau funkcijos( [4] ) ekstremumus.  
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f:(x^2+y-11)^2+(x+y^2-7)^2;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+L1:diff(f,x)=0; L2:diff(f,y)=0;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Randame kritinius taškus:
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+krit_taskai:solve([L1,L2],[x,y]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+length(%);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Gavome, kad fukcija turi 9 kritinius taškus. Jų klasifikacijai pritaikome komandą  "testas".
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+map(testas,krit_taskai)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Brėžime lygio linijas vienintelio maksimumo taško [x=-0.27084458851071,y=-0.92303848075962] aplinkoje:
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+wxcontour_plot(f, [x,-0.3,-0.24], [y,-1,-0.85], [legend,false],
+[gnuplot_preamble,"set cntrparam levels 12"])$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Geriau  negu su  "contour_plot"  nubrėžti lygio linijas galima su paketu "implicit_plot".
+Tada lygių reikšmes reikia parinkti patiems.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+load(implicit_plot)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+wximplicit_plot([f=1,f=10,f=20,f=30,f=160,f=180],
+[x,-5,5],[y,-5,5],[legend,false]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Dar kartą  randame visus penkis lokaliuosius ekstremumus su paketu "fmin_cobyla":
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+load(fmin_cobyla)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+fmin_cobyla(f, [x, y], [-3,3], constraints = [], iprint=0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+fmin_cobyla(f, [x, y], [-3,-3], constraints = [], iprint=0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+fmin_cobyla(f, [x, y], [1,1], constraints = [], iprint=0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+fmin_cobyla(f, [x, y], [1,-2], constraints = [], iprint=0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+fmin_cobyla(-f, [x, y], [-1,-1], constraints = [], iprint=0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+4 pavyzdys
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f:(x-1/2)^2*(x+1)^2+(y+1)^2*(y-1)^2;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+L1:diff(f,x)=0; L2:diff(f,y)=0;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Randame kritinius taškus:
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+krit_taskai:solve([L1,L2],[x,y]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+length(%);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Gavome, kad fukcija turi 9 kritinius taškus. Jų klasifikacijai pritaikome komandą  "testas".
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+map(testas,krit_taskai)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+load(implicit_plot)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+wximplicit_plot([f=1/8,f=1/4,f=1/2,f=1,f=337/256-0.1,f=2,f=3],
+[x,-2,1.5],[y,-2,2],[legend,false]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+337/256;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+float(%), numer;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+[1] http://tutorial.math.lamar.edu/Classes/CalcIII/RelativeExtrema.aspx
+[2] https://en.wikipedia.org/wiki/Second_partial_derivative_test
+[3] http://mathworld.wolfram.com/SecondDerivativeTest.html
+[4] http://en.wikipedia.org/wiki/Himmelblau%27s_function
+   [wxMaxima: comment end   ] */
+
+
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

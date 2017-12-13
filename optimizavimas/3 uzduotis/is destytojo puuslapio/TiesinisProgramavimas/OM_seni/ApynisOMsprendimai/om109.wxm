@@ -1,0 +1,76 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.1 ] */
+
+/* [wxMaxima: comment start ]
+OM 109 psl. Rasti min f. Rasime visus kraštutinius taškus
+ir patikrinsime jų optimalumą.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(simplex)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f:x1-2*x2+3*x3-x4-2*x5;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[
+2*x1-3*x2+x3-x4-x5=5,
+x1-4*x2+x3+x5=6,
+3*x1+2*x2+3*x3-6*x4-3*x5=12];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_lp(f, apr),nonegative_lp=true;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Tikslo funkcija neaprėžta. Todėl optimalių taškų nėra.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Baziniams sprendiniams rasti apibrėžiame komandą "bazic_sols":
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+bazic_sols(sist):=block([X,s,var,baz],
+X:sort(listofvars(sist)),
+s:length(X)-length(sist),
+var:full_listify(powerset(setify(X), s)),
+baz:[],
+for k thru length(var) do
+(
+append(var[k],sist),
+solve(%%),
+subst(%%,X),
+if freeof(X,%%) then
+baz:cons(%%,baz)
+),
+setify(baz),
+listify(%%)
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame visus bazinius sprendinius:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+baz:bazic_sols(apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame visus kraštutinius taškus:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+krast:sublist(baz,lambda([e],lmin(e)>=0));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Nei vienas iš jų nėra optimalus.
+   [wxMaxima: comment end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

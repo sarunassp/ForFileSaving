@@ -1,0 +1,41 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.1 ] */
+
+/* [wxMaxima: comment start ]
+OM 77 psl.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f:2*x1^2+x2^2-4*x1+2*x2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[2*x1+x2>=4,x1+2*x2>=2];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(nopt);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_nopt(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Ats. f_min=f(2,0)=0.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Grafinė iliustracija:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(implicit_plot)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wximplicit_plot([x2^2+2*x2+2*x1^2-4*x1=0,x2+2*x1=4,x1+2*x2=2],[x1,-4,4],[x2,-4,4]);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

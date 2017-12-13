@@ -1,0 +1,121 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 15.04.0 ] */
+
+/* [wxMaxima: comment start ]
+
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: title   start ]
+Matricinio lošimo sprendimas
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+Su komandomis vlow ir vupp apskaičiuojame lošimo apatinius ir viršutinius rėžius.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+vlow(A):=block([rows,cols],
+[rows,cols]:matrix_size(A),
+lmax(makelist(lmin(A[i]),i,1,rows)))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+vupp(A):=block([rows,cols],
+[rows,cols]:matrix_size(A),
+lmin(makelist(lmax(transpose(A)[i]),i,1,cols)))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+A.Apynis, Lošimų teorija, VU, 2007, 6.1 pavyzdžio sprendimas.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Išspręskite matricinį lošimą, kai lošimo matrica yra
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+A:matrix([6,3,1,-1],[-2,1,0,5]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+vlow(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+vupp(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+Ap:A+3;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(simplex);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f1:u1+u2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr1:[9*u1+u2>=1,6*u1+4*u2>=1,4*u1+3*u2>=1,2*u1+8*u2>=1,u1>=0,u2>=0];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sol:minimize_lp(f1,apr1),nonegalive_lp=true;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+s:subst(sol[2],[u1,u2]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+d:s[1]+s[2];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Pirmojo lošėjo strategija yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+s1:s/d;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f2:w1+w2+w3+w4;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr2:[9*w1+6*w2+4*w3+2*w4<=1,w1+4*w2+3*w3+8*w4<=1,w1>=0,w2>=0,w3>=0,w4>=0];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sol2:maximize_lp(f2,apr2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+s:subst(sol2[2],[w1,w2,w3,w4]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+d:s[1]+s[2]+s[3]+s[4];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Antrojo lošėjo strategija yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+s2:s/d;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Lošimo vertė yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+s1.A.s2;
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

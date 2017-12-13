@@ -1,0 +1,186 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.1 ] */
+
+/* [wxMaxima: comment start ]
+apynis OM 174 psl.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Pervežimo kainos:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+K:matrix([4,3,2,5,6],[8,3,4,5,7],[6,8,6,7,5],[4,3,5,2,4]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Poreikiai:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+po:[60,50,50,70,100]; n:length(po);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Atsargos:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+at:[70,80,60,120]; m:length(at);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Pervežimų matrica:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+X: genmatrix(lambda([i,j], x[concat(i,j)]), m, n);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Visas atsargas reikia išvežti, todėl
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+L1:makelist(sum(X[i,j],j,1,n)=at[i],i,1,m);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+L2:makelist(sum(X[i,j],i,1,m)=po[j],j,1,n);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:append(L1,L2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f:sum(sum(K[i,j]*X[i,j],i,1,m),j,1,n);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(simplex)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+spr:minimize_lp(f,apr),nonegative_lp=true;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+reverse(spr[2]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Ats.: F_min=1150. Optimalioji pervežimų matrica yra
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+X=subst(spr[2],X);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+2 būdas
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+listofvars(apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist(%[k]>=0,k,1,20);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr1:append(%,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(nopt);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_nopt(f,apr1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+3 būdas. Rasime visus kraštutinius taškus
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Baziniams sprendiniams rasti apibrėžiame komandą "bazic_sols":
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+bazic_sols(sist):=block([X,s,var,baz],
+X:sort(listofvars(sist)),
+s:length(X)-length(sist),
+var:full_listify(powerset(setify(X), s)),
+baz:[],
+for k thru length(var) do
+(
+append(var[k],sist),
+solve(%%),
+subst(%%,X),
+if freeof(X,%%) then
+baz:cons(%%,baz)
+),
+setify(baz),
+listify(%%)
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame visus bazinius sprendinius:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+baz:bazic_sols(apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame visus kraštutinius taškus:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+krast:sublist(baz,lambda([e],lmin(e)>=0));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame tiklo funkcijos f reikšmes kraštiniuose taškuose.
+Tam apibrėžiame funkciją F.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+F(Y):=subst(makelist(concat(x,k)=Y[k],k,1,7),f);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+vals:map(F,krast);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame mažiausią reikšmę ir taškus, kuriuose ši reikšmė įgyjama.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+m:lmin(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sublist_indices(vals,lambda([x],x=m));
+ats:makelist(krast[k],k,%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Atsakymas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+[m,ats];
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

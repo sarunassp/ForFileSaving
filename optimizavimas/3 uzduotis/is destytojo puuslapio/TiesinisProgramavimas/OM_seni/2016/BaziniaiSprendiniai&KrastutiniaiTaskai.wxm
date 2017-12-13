@@ -1,0 +1,835 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 15.04.0 ] */
+
+/* [wxMaxima: title   start ]
+Baziniai sprendiniai ir kraštutiniai taškai
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+ (C)  A.Domarkas,  VU, 2015
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+žr.: [1] 244-252; [2] 194-198; [3] 33-40; [4] 89-98; [5] 6.3
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Tegul tiesinių lygčių sistemos nežinomųjų skaičius yra n
+ir koeficientų matricos A rangas lygus r.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Tiesinių lygčių sistemos nežinomieji, kurių reikšmes galima laisvai pasirinkti, vadinami 
+laisvaisiais nežinomaisiais. Kiti šios sistemos nežinomieji vadinami baziniais nežinomaisiais. 
+Bazinių nežinomųjų skaičius yra lygus matricos A rangui r, o laisvųjų nežinomųjų skaičius yra
+lygus k = n-r.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Apibrėžimas. Tarkime, kad lygčių sistema yra suderinta ir r < n. Tada jos
+sprendinys, kurio laisvųjų nežinomųjų reikšmės lygios nuliui, vadinamas baziniu sprendiniu.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Baziniai sprendiai yra pritaikomi tiesinio programavimo uždaviniuose. 
+Jie yra svarbūs apbūdinant leistinosios aibės kraštutinius taškus.
+Ekstremalios tikslo funkcijos reikšmės yra įgyjamos šiuose taškuose.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Apibrėžimas. Tegu X yra iškiloji aibė. Taškas x0 yra vadinamas aibės X kraštutiniu
+tašku(extreme point), jei jis nepriklauso vidui atkarpos, jungiančios du
+skirtingus taškus iš aibės X. Jei aibė X yra iškilasis daugiakampis 
+arba iškilasis briaunainis, tai kraštutiniai taškai sutampa su jo viršūnėmis.
+žr.: [4], 89-98
+http://en.wikipedia.org/wiki/Extreme_point
+http://ljk.imag.fr/membres/Anatoli.Iouditski/cours/convex/chapitre_1.pdf
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Čia naudojama atvirojo kodo kompiuterinės algebros sistema Maxima 5.36.1
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: section start ]
+pavyzdys
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+1 pavyzdys([1], 247 p.) Raskite tiesinių lygčių sistemos visus bazinius sprendinius.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+eq1:x1+x2-x3+x4+x5=1$
+eq2:x2+x3+x4-x5=2$
+eq3:x1-x3+x5=0$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sist:[eq1,eq2,eq3]$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+vars:sort(listofvars(sist));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+Ai:augcoefmatrix(sist,vars);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A:submatrix(Ai,6);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+[m,n]:matrix_size(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Matricos A rangas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+r:rank(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Laivųjų nežinomųjų skaičius:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+k:n-r;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+rank(Ai)=rank(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+is(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Gavome, kad išplėstinės matricos rangas lygus koeficientų matricos rangui.
+Todėl pagal Kronekerio-Kapelio teoremą sistema yra suderinta.
+Didžiausias laisvųjų nežinomųjų pasirinkimo būdų skaičius
+lygus derininių skaičiui iš n po k:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+binomial(n,k);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+var:full_listify(powerset({x1,x2,x3,x4,x5}, k));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+length(var);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist(solve(append(sist,var[i]),vars),i,1,length(var));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+delete([],%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Todėl baziniai sprendiniai yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+ats:makelist(subst(%[i],vars),i,1,length(%));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+arba
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+reverse(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: section start ]
+pavyzdys
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+2 pavyzdys([3], 40 p., 11 užd.) Raskite tiesinių lygčių sistemos visus bazinius 
+sprendinius. Šiame pavyzdyje matricos A rangas yra mažesnis už lygčių skaičių.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+kill(all)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq1:x1-2*x2+x4=-3$
+eq2:5*x1-4*x3-x4=5$
+eq3:-7*x1+4*x2+4*x3-x4=1$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sist:[eq1,eq2,eq3]$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sist:[eq1,eq2,eq3]$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+vars:sort(listofvars(sist));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+Ai:augcoefmatrix(sist,vars);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A:submatrix(Ai,5);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+[m,n]:matrix_size(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Matricos A rangas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+r:rank(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Laivųjų nežinomųjų skaičius:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+k:n-r;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+rank(Ai)=rank(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+is(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Gavome, kad išplėstinės matricos rangas lygus koeficientų matricos rangui.
+Todėl pagal Kronekerio-Kapelio teoremą sistema yra suderinta.
+Didžiausias laisvųjų nežinomųjų pasirinkimo skaičius
+lygus derininių skaičiui iš n po k:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+binomial(n,k);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+var:full_listify(powerset({x1,x2,x3,x4}, k));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+length(var);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist(solve(append(sist,var[i]),vars),i,1,length(var));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Todėl baziniai sprendiniai yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+ats:makelist(subst(%[i],vars),i,1,length(%));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+arba
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+reverse(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Gavome tokį pat atsakymą kaip ir [4].
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: section start ]
+pavyzdys
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+3 pavyzdys([3], 133 p.) Raskite tiesinių lygčių sistemos
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+eq1:x1-3*x2+2*x4-4*x5=-7$
+eq2:3*x1+x2-2*x3+x5=1$
+eq3:2*x1-x2+x3+7*x4-3*x5=5$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+neneigimų sprendinių aibės X kraštutinius taškus.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+sist:[eq1,eq2,eq3]$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+vars:[x1,x2,x3,x4,x5]$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+var:full_listify(powerset({x1,x2,x3,x4,x5}, 2));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist(solve(append(sist,var[i]),vars),i,1,length(var));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+delete([],%)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Radome visus bazinius sprendinius:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+baz:makelist(subst(%[i],vars),i,1,length(%));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+length(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Gauname atsakymą: neneigiamų sprendinių aibės X kraštutiniai taškai yra
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+krast:sublist(baz,lambda([e],lmin(e)>=0));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Radome 9 bazinius sprendinius, iš kurių 4 yra neneigiami.
+Vadovėlyje [3] yra rasti tik 3 kraštutiniai taškai [0,3,1,1,0], [2,3,4,0,0] ir 
+[0,0,37/46,79/46,60/23]. Palyginkite sprendimo metodus.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: section start ]
+pavyzdys
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+4 pavyzdys([1], 294 p.) Raskite minimumą funkcijos F=4*x1+x2-x3+2*x4-x5, 
+kai 3*x1+x2+2*x3-x4=5, 2*x1-x3+3*x4+4*x5=8, x1>=0, ..., x5>=0.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+remvalue (all)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Čia yra pateikiamas kitas bazinių sprendinių ieškojimo būdas, kuris naudoja komandą "Msolve".
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+Msolve(A,K):=block([X,S,n,m,i,j,k],
+X:makelist(x[i],i,K),
+n:length(A[1])-1, m:length(A),
+S:makelist(sum(A[i,j]*x[j],j,1,n)=A[i,n+1],i,1,m),
+if rank(A)#rank(submatrix(A,n+1)) then return("sprendinių nėra"),
+solve(S,X), if %%=[] then 
+return("neteisingai baziniai pasirinkti nežinomieji") else
+spr:subst(%%,makelist(x[i],i,n)),
+p:listofvars(spr),k:length(p),
+L:[a,b,c,d,e,f,g,h],
+subst(makelist(p[i]=L[i],i,1,k),spr)
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+Ai:matrix([3,1,2,-1,0,5],
+         [2,0,-1,3,4,8]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A:submatrix(Ai,6)$ B:col(Ai,6)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+binomial(5,2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+var:full_listify(powerset({1,2,3,4,5}, 2));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+visi:[]$
+for k thru 10 do (Msolve(Ai,var[k]),
+if listp(%%) then visi:endcons(%%,visi))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Visi baziniai spendiniai:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+baz:visi,a=0,b=0,c=0;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Apibrėžiame tikslo funkciją F(x). Pabrėšime, kad čia x yra vektorius. 
+Kai rašome x[i], tai imama to vektoriaus i-toji koordinatė.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+F(x):=4*x[1]+x[2]-x[3]+2*x[4]-x[5];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Visi baziniai spendiniai su neneigiamomis koordinatėmis:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+baz1:sublist(baz,lambda([e],lmin(e)>=0));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Atitinkamos tikslo funkcijos F reikšmės yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+map(F,baz1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+lmin(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Matome, kad mažiausia reikšmė yra -41/8, įgyjama ant  bazinio sprendinio [0,0,5/2,0,21/8].
+Bazinius sprendinius surūšiuojame taip, kad mažiausia reikšmė būtų ant pirmojo bazinio sprendinio.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+ru(a,b):=F(a)<=F(b)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sort(baz1,ru);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ats:first(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+F_min=F(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+2 būdas(naudojant paketą "simplex"):
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(simplex)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+F:4*x1+x2-x3+2*x4-x5;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[3*x1+x2+2*x3-x4=5,2*x1-x3+3*x4+4*x5=8];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_lp(F,apr), nonegative_lp=true;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+3 būdas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+kill(all)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq1:3*x[1]+x[2]+2*x[3]-x[4]=5$
+eq2:2*x[1]-x[3]+3*x[4]+4*x[5]=8$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+F(x):=4*x[1]+x[2]-x[3]+2*x[4]-x[5];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sist:[eq1,eq2]$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+vars:listofvars(sist);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+Ai:augcoefmatrix(sist,vars);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A:submatrix(Ai,6);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+[m,n]:matrix_size(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Matricos A rangas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+r:rank(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Laivųjų nežinomųjų skaičius:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+k:n-r;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+var:full_listify(powerset(setify(vars), k));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist(solve(append(sist,var[i]),vars),i,1,length(var));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Radome visus bazinius sprendinius:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+baz:makelist(subst(%[i],vars),i,1,length(%));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Leistinosios aibės X kraštutiniai taškai yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+krast:sublist(baz,lambda([e],lmin(e)>=0));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame tikslo funkcijos reikšmes kraštiniuose taškuose:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+map(F,krast);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Mažiausioji reikšmė yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+min_r:lmin(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Ji įgyjama taškuose(šiuo atveju yra tik vienas taškas):
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+sublist(krast,lambda([x],F(x)=min_r));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+4 būdas. Pasinaudosime programa "ext"((C), A.Domarkas) kraštutinių taškų radimui:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+kill(all)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(simplex)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ext(apr):=block([var,fs,cs,ap,s,S,m],
+var:sort(listofvars(apr)),
+s:apply("+",var),
+fs:append([1,s,-s],var,-var),
+ap(k):=subst(apr[k]=(lhs(apr[k])=rhs(apr[k])),apr),
+cs:makelist(ap(k),k,1,length(apr)),
+S:[],
+for f in fs do
+for c in cs do
+(
+m:minimize_lp(f,c),
+if listp(m) then
+S:cons(subst(m[2],var),S)
+),
+listify(setify(S))
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+F(x):=4*x[1]+x[2]-x[3]+2*x[4]-x[5];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[3*x[1]+x[2]+2*x[3]-x[4]=5, 2*x[1]-x[3]+3*x[4]+4*x[5]=8, 
+x[1]>=0,x[2]>=0,x[3]>=0,x[4]>=0,x[5]>=0]$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame kraštutinius taškus:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+krast:ext(apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame tikslo funkcijos reikšmes kraštutiniuose taškuose:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+map(F,krast);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Mažiausioji reikšmė yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+min_r:lmin(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Ji įgyjama taškuose(šiuo atveju yra tik vienas taškas):
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+sublist(krast,lambda([x],F(x)=min_r));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+5 būdas. Pasinaudosime programa "nopt"((C), A.Domarkas) netiesinės 
+optimizacijos uždavinių sprendimui. Ši programa sprendžia ir tiesinio
+programavimo uždavinius su nedideliu kintamųjų skaičiumi. Joje
+nenaudojamas simplekso metodas, bet naudojamas Lagranžo daugiklių metodas.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+kill(all)$ reset();
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(nopt);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f:4*x1+x2-x3+2*x4-x5$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[3*x1+x2+2*x3-x4=5, 2*x1-x3+3*x4+4*x5=8, 
+x1>=0,x2>=0,x3>=0,x4>=0,x5>=0]$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_nopt(f,apr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+6 būdas. Žr. [1], 294 p.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Palyginkite sprendimo būdus. 
+Ar racionalu šiais laikais tokius uždavinius spręsti ranka be kompiuterio?
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: section start ]
+pavyzdys
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+5 pavyzdys([5], Example 6.24).
+Neneigiamų sprendinių aibėje rasti funkcijos f minimummą, kai 
+teisingi apribojimai g.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Šiame pavyzdyje uždavinys turi kelis sprendinius,
+be to, nenaudojamas suvedimas į kanoninį pavidalą.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+1 būdas.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(simplex)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f:9*x1/2+x2/2+x3+17*x4/2+5*x5+3*x6/2+9*x7/2+x8;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr:[x1+2*x3+x4+2*x5+3*x6+x8>=25,x2+x7+x8>=35];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_lp(f,apr),nonegative_lp=true;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sort(%[2]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+2 būdas. Pasinaudosime programa "nopt"((C), A.Domarkas) netiesinės 
+optimizacijos uždavinių sprendimui. Ši programa sprendžia ir tiesinio
+programavimo uždavinius su nedideliu kintamųjų skaičiumi.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(nopt);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+vars:listofvars([f,apr]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+nn:makelist(vars[i]>=0,i,length(vars));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+apr1:append(apr,nn);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+spr:minimize_nopt(f,apr1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Gavome tris sprendinius.
+Visi jie tinka, nes juos įstačius į f gauname tą pačią reikšmę:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+subst(spr[2],f);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+subst(spr[3],f);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+subst(spr[4],f);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+3 būdas. Pasinaudosime programa "ext"((C), A.Domarkas) kraštutinių taškų radimui:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+ext(apr):=block([var,fs,cs,ap,s,S,m],
+var:sort(listofvars(apr)),
+s:apply("+",var),
+fs:append([1,s,-s],var,-var),
+ap(k):=subst(apr[k]=(lhs(apr[k])=rhs(apr[k])),apr),
+cs:makelist(ap(k),k,1,length(apr)),
+S:[],
+for f in fs do
+for c in cs do
+(
+m:minimize_lp(f,c),
+if listp(m) then
+S:cons(subst(m[2],var),S)
+),
+listify(setify(S))
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+krast:ext(apr1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Apskaičiuosime tikslo funkcijos reikšmes šiuose taškuose. 
+Tam šiek tiek pakeisime tikslo funkcijos įvedimą.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+define(g(x),subst(makelist(concat(x,i)=x[i],i,1,8),f));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame tikslo funkcijos reikšmes kraštutiniuose taškuose:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+map(g,krast);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Mažiausioji reikšmė yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+min_r:lmin(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Ji įgyjama taškuose:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+sublist(krast,lambda([x],g(x)=min_r));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Mathematica(žr, [5], Example 6.24) ir Maxima simplex paketas(žr. 1 sprendimo būdą)
+gauna tik vieną sprendinį.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: section start ]
+Literatūra
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+[1]  A. Apynis, E. Stankus, Matematikos pagrindai, V., TEV, 2009
+[2]  A. Apynis, E. Stankus, Matematika, V., TEV, 2001
+[3]  A. Apynis, Optimizavimo metodai, V., VU, 2005
+[4]  V. Čiočys, R.Jasiulionis, Matematinis programavimas, V., Mokslas, 1990
+[5]  M. Asghar Bhatti, Practical optimization methods: with Mathematica Aplications, Springer, 2000
+   [wxMaxima: comment end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

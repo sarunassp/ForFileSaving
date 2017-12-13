@@ -1,0 +1,52 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.1 ] */
+
+/* [wxMaxima: comment start ]
+OM 133 Rasime sistemos neneigiamų sprendinių aibės kraštutinius taškus
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+sist:[
+x1-3*x2+2*x4-4*x5=-7,
+3*x1+x2-2*x3+x5=1,
+2*x1-x2+x3+7*x4-3*x5=5
+];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+bazic_sols(sist):=block([X,s,var,baz],
+X:sort(listofvars(sist)),
+s:length(X)-length(sist),
+var:full_listify(powerset(setify(X), s)),
+baz:[],
+for k thru length(var) do
+(
+append(var[k],sist),
+solve(%%),
+subst(%%,X),
+if freeof(X,%%) then
+baz:cons(%%,baz)
+),
+setify(baz),
+listify(%%)
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame visus bazinius sprendinius:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+baz:bazic_sols(sist);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Randame visus kraštutinius taškus:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+krast:sublist(baz,lambda([e],lmin(e)>=0));
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

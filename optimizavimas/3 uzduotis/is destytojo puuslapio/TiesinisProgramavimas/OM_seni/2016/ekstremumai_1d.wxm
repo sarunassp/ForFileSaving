@@ -1,0 +1,522 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 15.04.0 ] */
+
+/* [wxMaxima: title   start ]
+Vieno kintamojo funkcijos ekstremumai
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+© A.Domarkas, VU, 2016
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+• Funkcijos y = f(x) apibrėžimo srities vidinis taškas x = c yra vadinamas funkcijos 
+  kritiniu tašku, jei f'(c) = 0 arba f'(c) neegzistuoja.
+• Jei f'(c) = 0 ir f''(c) > 0, tai c - lokalaus minimumo taškas.
+• Jei f'(c) = 0 ir f''(c) < 0, tai c - lokalaus maksimumo taškas.
+• Jei f'(c) = 0 ir f''(c) = 0, tai reikalingas papildomas tyrimas.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Čia naudojama atvirojo kodo kompiuterinės algebros programa Maxima-sbcl-5.36.1
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Kritinių taškų analizei  pagal antrosios išvestinės ženklą apibrėžiame komandą test:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+test(sol):=block(minp:[], maxp:[],
+for k thru length(sol) do
+(
+if freeof(%i,sol[k]) and at(diff(f(x),x,2),sol[k])>0 then
+(print ("minimumas: ", ev('f(x)=f(x),sol[k])),minp:endcons(ev([x,f(x)],sol[k]),minp))
+elseif freeof(%i,sol[k]) and at(diff(f(x),x,2),sol[k])<0 then
+(print ("maksimumas: ", ev('f(x)=f(x),sol[k])),maxp:endcons(ev([x,f(x)],sol[k]),maxp))
+))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+1 pavyzdys. Rasti funkcijos y = x^4 - x   lokaliuosius ekstremumus.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=x^4-x$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq:diff(f(x),x)=0;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sol:solve(eq);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+test(sol)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Arba skaitiškai:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+test(sol),numer$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minp;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x),['discrete, minp]],
+[x,-0.1,1.2],
+[style,[lines,1,7], [points,2,2,1]],
+[legend, "y = x^4 - x", "minimumas"]
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+2 pavyzdys
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=x^4/4-2*x^2$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sol:solve(diff(f(x),x)=0,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+test(sol)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minp;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maxp;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x),['discrete, minp],['discrete, maxp]], [x,-3,3],
+[style,[lines,1,7], [points,3,2,1],[points,3,3,1]],
+[legend, string(y = f(x)), "minimumas", "maksimumas"]
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+3 pavyzdys.  Rasti funkcijos y = 10*x^6+12*x^5+15*x^4+20*x^3-360*x^2-720*x 
+             lokaliuosius ekstremumus.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=10*x^6+12*x^5+15*x^4+20*x^3-360*x^2-720*x$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq:diff(f(x),x)=0;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sol:solve(eq,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Jei lygties eq kairioji pusė yra daugianaris ir komanda solve tos lygties 
+neišsprendžia, tai vietoj solve naudokite allroots:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+allroots(eq);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+test(sol)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minp;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maxp;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Arba skaitiškai:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+test(sol),numer$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x),['discrete, minp],['discrete, maxp]], [x,-3,3],[y,-2000,2000],
+[style,[lines,1,7], [points,3,2,1],[points,3,3,1]],
+[legend, "y = f(x)", "minimumas", "maksimumas"],
+[gnuplot_preamble,"set key top center;"]
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+4 pavyzdys  Rasti funkcijos y = x*(1-x)*exp(x) lokaliuosius ekstremumus.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=x*(1-x)*exp(x)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sol:solve(diff(f(x),x)=0,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+test(sol)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Minimumo taškas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+minp,expand,factor;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Maksimumo taškas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+maxp,expand,factor;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Arba skaitiškai:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+test(sol),numer$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x),['discrete, minp],['discrete, maxp]], [x,-3,1.2],
+[style,[lines,1,7], [points,3,2,1],[points,3,3,1]],
+[legend, string(y = f(x)), "minimumas", "maksimumas"],
+[gnuplot_preamble,"set key top left;"]
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+5 pavyzdys  Rasti funkcijos y = sin(x)*(1+cos(x))  lokaliuosius ekstremumus. 
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=sin(x)*(1+cos(x))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+diff(f(x),x)=0;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq:trigrat(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(trigtools);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+paketo  "trigtools "  autorius - A.Domarkas
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+trigsolve(eq,0,2*%pi);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+listify(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sol:makelist(x=%[k],k,1,length(%));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+test(sol);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minp;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maxp;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x),['discrete, minp],['discrete, maxp]], [x,0,2*%pi],
+[style,[lines,1,7], [points,3,2,1],[points,3,3,1]],
+[legend, string(y = f(x)), "minimumas", "maksimumas"]
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+6 pavyzdys. Rasime pirmosios rūšies 5-os eilės Čebyšovo polinomo 
+            T[5] = 16*x^5 - 20*x^3 + 5*x lokaliuosius ekstremumus:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(orthopoly)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Reikšmių suprastinimui panaudosime paketą "sqdnst" ir jo komandą "sqrtdenest".
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load (sqdnst)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=expand(chebyshev_t (5, x));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+solve(diff(f(x),x)=0,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sol:ratsimp(sqrtdenest(%));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+test(sol);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Minimumo taškai:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+minp;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Maksimumo taškai:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+maxp;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x),['discrete, minp],['discrete, maxp]], [x,-1,1],[y,-1,2],
+[style,[lines,1,7], [points,3,2,1],[points,3,3,1]],
+[legend, string(y = f(x)), "minimumas", "maksimumas"]
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Ištirkite kitus Čebyšovo polinomus.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+7 pavyzdys. Rasti funkcijos y = x^5-3x^4+5 maksimumą ir minimumą,
+            kai x priklauso intervalui [0, 4].
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=x^5-3*x^4+5$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x)], [x,0,4])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Iš brėžinio matome, kad globalus maksimumas, kai x priklauso [0, 4], 
+yra pasiekiamas taške x = 4.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(4);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Todėl f_max =f(4) = 261
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+eq:diff(f(x),x)=0;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sol:solve(eq);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+test(sol)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+test(sol),numer$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Minimumo taškas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+minp;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Globalaus maksimumo taškas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+maxp:[[4, 261]];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x),['discrete, minp],['discrete, maxp]], [x,0,4],[y,-20,300],
+[style,[lines,1,7], [points,3,2,1],[points,3,3,1]],
+[legend, string(y = f(x)), "minimumas", "maksimumas"]
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Sprendimas su paketu "nopt":
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(nopt);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+maximize_nopt(f(x),[x>=0,x<=4]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+minimize_nopt(f(x),[x>=0,x<=4]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+8 pavyzdys. Rasti funkcijos y = x*(1-x)*exp(x) lokaliuosius 
+            ekstremumus intervale [0, 20].
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=sqrt(x)*cos(x)*erf(x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f1:diff(f(x),x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Su solve ar allroots lygties f'(x) = 0 išspręsti nepavyks.
+Todėl skaitiniam sprendimui naudojame find_root.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f], [x,0,20])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Iš brėžinio matome, kad intervale [0, 20] funkcija turi 7 lokaliuosius ekstremumus,
+kurie yra intervaluose [0.1,2], [2,5], [5, 8], [8,11], [11,14], [14, 17], [17, 20].
+Todėl dalijimo taškai yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+X:[0.1, 2, 5, 8, 11, 14, 17, 20];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Kritiniai taškai:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+kt:makelist(x=find_root(f1, x, X[k], X[k+1]),k,1,7);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+test(kt);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x),['discrete, minp],['discrete, maxp]], [x,0,20],[y,-5,7],
+[style,[lines,1,7], [points,3,2,1],[points,3,3,1]],
+[legend, string(y = f(x)), "minimumas", "maksimumas"]
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+9 pavyzdys. Rasti funkcijos
+y = 10*x^7-35*x^6-42*x^5+210*x^4-70*x^3-210*x^2+140*x+2
+lokaliuosius ekstremumus
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=10*x^7-35*x^6-42*x^5+210*x^4-70*x^3-210*x^2+140*x+2$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f1:diff(f(x),x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Lygtį f'(x) = 0 tiksliai pavyksta išspręsti su komanda solvet iš paketo odes:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(odes);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+kt:solvet(f1,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Skaitiškai visas šaknis galima rasti su komanda allroots:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+allroots(f1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+test(kt)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Funkcijos simbolines reikšmes galima suprastinti. Atlikite tai patys.
+Skaitinės reikšmės yra:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+test(kt),numer$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x),['discrete, minp],['discrete, maxp]], [x,-2.3, 3.2],[y,-500,850],
+[style,[lines,1,7], [points,3,2,1],[points,3,3,1]],
+[legend, string(y = f(x)), "minimumas", "maksimumas"]
+)$
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
