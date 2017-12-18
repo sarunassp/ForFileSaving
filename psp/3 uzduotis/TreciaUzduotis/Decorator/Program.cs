@@ -8,12 +8,26 @@ namespace Decorator
     {
         public static void Main (string[] args)
         {
-            var asd = new WindowDecorator (new HouseResizeDecorator (new House (), "resize"), "window") as HouseDecorator;
+            AbstractHouse asd = new WindowDecorator (new HouseResizeDecorator (new House (), "resize"), "window");
 
-            asd.Draw ();
-            asd = (HouseDecorator) asd.DeleteByRole ("resize");
-            
+            asd.DeleteByRole ("resize");
+
             Console.WriteLine (asd.GetDescription ());
+        }
+    }
+
+    public static class Helpers
+    {
+        public static void DeleteByRole (this AbstractHouse source, string role)
+        {
+            var asd = source as HouseDecorator;
+            if (null == asd)
+                return;
+
+            if (asd.MRole == role)
+                source = asd.MHouse;
+            
+            DeleteByRole (asd.MHouse, role);
         }
     }
 }

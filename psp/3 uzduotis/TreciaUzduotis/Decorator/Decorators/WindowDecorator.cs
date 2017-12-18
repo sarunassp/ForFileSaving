@@ -10,7 +10,7 @@ namespace Decorator.Decorators
 
         public override void Draw ()
         {
-            m_house.Draw ();
+            MHouse.Draw ();
             DrawWindow ();
         }
 
@@ -20,7 +20,7 @@ namespace Decorator.Decorators
 
         public override string GetDescription ()
         {
-            return m_house.GetDescription () + ", has windows";
+            return MHouse.GetDescription () + ", has windows";
         }
     }
 }

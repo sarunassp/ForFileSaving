@@ -4,38 +4,32 @@ namespace Decorator.Decorators
 {
     public abstract class HouseDecorator : AbstractHouse
     {
-        protected AbstractHouse m_house;
-        protected readonly string m_role;
+        public AbstractHouse MHouse;
+        public readonly string MRole;
         
         public HouseDecorator (AbstractHouse house, string role)
         {
-            m_house = house;
-            m_role = role;
+            MHouse = house;
+            MRole = role;
         }
 
         protected AbstractHouse GetHouse ()
         {
-            if (m_house.GetType () == typeof(House))
-                return m_house;
-            return ((HouseDecorator)m_house).GetHouse ();
+            if (MHouse.GetType () != typeof(HouseDecorator))
+                return MHouse;
+            return ((HouseDecorator)MHouse).GetHouse ();
         }
         
-        public AbstractHouse GetByRole (string role)
+        public override void a1 ()
         {
-            if (role == m_role)
-                return this;
-            if (m_house.GetType () == typeof(HouseDecorator))
-                return ((HouseDecorator)m_house).GetByRole (role);
-            return null;
+            MHouse.a1 ();
+        }
+        
+        public override void a2 ()
+        {
+            MHouse.a2 ();
         }
 
-        public AbstractHouse DeleteByRole (string role)
-        {
-            if (role != m_role)
-                m_house = ((HouseDecorator)m_house).DeleteByRole (role);
-            
-            return role == m_role ? m_house : this;
-        }
         public abstract override void Draw ();
 
         public abstract override string GetDescription ();

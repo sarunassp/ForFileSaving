@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="4uzduotis.js"></script>
+	</head>
+	<body>
+
+        <p name="innerhtml">This will be changed</p>
+        <p name="style">Style will change</p>
+        <p name="delete">This will be deleted</p>
+
+        <button name="innerhtml">change inner html</button>
+        <button name="style">change style</button>
+        <button name="delete">delete tag</button>
+        <button name="add">add tag</button>
+
+        <br><br><br><br><br><br><br>
+		
+        
+        <form name="forma" id="formaId" onsubmit="validate()" onchange="onFormChange()" action=""> <!--action="url thingy idc about now" method="post"-->
+			Vardas: <input type="text" name="vardas" ><br/>
+			Pavardė: <input type="text" name="pavarde" ><br/>
+			Kortelės numeris: <input type="text" name="kortelesNumeris"><br/>
+            Korteles galiojimo data: <input type="text" name="kortelesData"><br />
+			<input type="submit" value="siusti" onclick="onClickFunc()">
+			<input type="reset" value="isvalyti">
+		</form>
+
+	</body>
+</html>

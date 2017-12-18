@@ -16,8 +16,8 @@ namespace ExtensionObjects.Extensions
 
         public void ResizeHouse ()
         {
-            m_house.Height = 20;
-            m_house.Width = 20;
+            MHouse.Height = 20;
+            MHouse.Width = 20;
         }
 
         public override string GetDescription ()

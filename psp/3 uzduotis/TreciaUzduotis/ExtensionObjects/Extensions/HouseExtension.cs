@@ -4,11 +4,11 @@ namespace ExtensionObjects.Extensions
 {
     public abstract class HouseExtension
     {
-        protected AbstractHouse m_house;
+        protected AbstractHouse MHouse;
 
         public HouseExtension (AbstractHouse house)
         {
-            m_house = house;
+            MHouse = house;
         }
         
         public abstract void Draw ();

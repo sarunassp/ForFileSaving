@@ -11,7 +11,7 @@ namespace Decorator.Decorators
         public override void Draw ()
         {
             ResizeHouse ();
-            m_house.Draw ();
+            MHouse.Draw ();
         }
 
         public void ResizeHouse ()
@@ -23,7 +23,7 @@ namespace Decorator.Decorators
 
         public override string GetDescription ()
         {
-            return m_house.GetDescription () + ", is resized";
+            return MHouse.GetDescription () + ", is resized";
         }
     }
 }
