@@ -14,16 +14,34 @@
         <button name="style">change style</button>
         <button name="delete">delete tag</button>
         <button name="add">add tag</button>
+        <br><br><br><br>
+        <button name="get" onclick="get()">get</button>
+        <button name="send" onclick="send()">send</button>
+        <br><br>
+
+        <p name="uri">asdasdasdasdadas</p>
+
+        <table border="1">
+            <tr>
+                <th>Vardas</th>
+                <th>Korteles numeris</th>
+                <th>Galiojimo data</th>
+            </tr>
+            <tr>
+                <td name="vardas"></td>
+                <td name="numeris"></td>
+                <td name="data"></td>
+            </tr>
+        </table>
 
         <br><br><br><br><br><br><br>
 		
         
-        <form name="forma" id="formaId" onsubmit="validate()" onchange="onFormChange()" action=""> <!--action="url thingy idc about now" method="post"-->
+        <form name="forma" id="formaId" onsubmit="validate()" onchange="onFormChange()" >
 			Vardas: <input type="text" name="vardas" ><br/>
-			Pavardė: <input type="text" name="pavarde" ><br/>
 			Kortelės numeris: <input type="text" name="kortelesNumeris"><br/>
             Korteles galiojimo data: <input type="text" name="kortelesData"><br />
-			<input type="submit" value="siusti" onclick="onClickFunc()">
+			<input type="submit" value="siusti" onclick="send()">
 			<input type="reset" value="isvalyti">
 		</form>
 

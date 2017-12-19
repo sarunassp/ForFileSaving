@@ -21,6 +21,41 @@ function validate()
         return true;
 }
 
+function send() {
+    //if (!validate())
+    //   return false;
+
+    var forma = document.forms["forma"];
+    var vardas = forma["vardas"].value;
+    var kortelesNumeris = forma["kortelesNumeris"].value;
+    var data = forma["kortelesData"].value;
+
+    $.ajax({
+        url: "https://api.myjson.com/bins",
+        type: "POST",
+        data: '{"vardas":"{a}", "kortelesNumeris": "{b}", "data": "{c}"}'.supplant({a : vardas, b : kortelesNumeris, c : data}),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data, textStatus, jqXHR) {
+            //alert(data.uri)
+            $("p[name=uri]").html("{a}".supplant({ a: data.uri }))
+        }
+    });
+}
+
+function get() {
+    $.ajax({
+        url: $("p[name=uri]").text(),
+        type: "Get",
+        dataType: "json",
+        success: function (data, textStatus, jqXHR) {
+            $("td[name=vardas]").html(data.vardas)
+            $("td[name=numeris]").html(data.kortelesNumeris)
+            $("td[name=data]").html(data.data)
+        }
+    });
+}
+
 $(document).ready(function () {
 
     $("button[name=innerhtml]").click(
@@ -56,3 +91,12 @@ function onFormChange() {
     else
         $("p").show();
 }
+
+String.prototype.supplant = function (o) {
+    return this.replace(/{([^{}]*)}/g,
+        function (a, b) {
+            var r = o[b];
+            return typeof r === 'string' || typeof r === 'number' ? r : a;
+        }
+    );
+};
